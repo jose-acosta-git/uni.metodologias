@@ -1,11 +1,15 @@
 "use strict";
 
-window.addEventListener("DOMContentLoaded", initPage());
+const listMaterials = new Vue({
+    el: "#materials",
+    data: {
+        list: [],             
+    }
+}); 
+
+document.addEventListener("DOMContentLoaded", initPage());
 
 function initPage() {
-       
-    const materials = document.querySelector("#materials");
-    
     /* Muestra todos los materiales */
     showMaterials();
 
@@ -14,9 +18,7 @@ function initPage() {
         let r = await fetch(`api/material` ,{
             "method": "GET"
         });
-        let listMaterials = await r.json();
-        listMaterials.forEach( m => {
-            materials.innerHTML += `<li>${m.name}</li>`;
-        });
+        let materials = await r.json();
+        listMaterials.list = materials;
     }
 }

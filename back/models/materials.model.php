@@ -10,8 +10,8 @@ class MaterialsModel{
 
     /** Abro la conexión de la base de datos */
     private function connect() {
-        $database = new PDO('mysql:host=localhost;'.'dbname=db_motoneta;charset=utf8', 'root', '');  
-        return $database;
+        //$database = new PDO('mysql:host=localhost;'.'dbname=db_motoneta;charset=utf8', 'root', '');  
+        //return $database;
     }
 
     function getAll(){
