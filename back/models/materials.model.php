@@ -16,8 +16,13 @@ class MaterialsModel{
 
     function getAll(){
         $materials = array(
-            array("name" => "plastico"),
-            array("name" => "carton")
+            array("name" => "papel", "image" =>"front\images\paper.jpeg"),
+            array("name" => "carton", "image" =>"front\images\cardboard.jpeg"),
+            array("name" => "envases plasticos", "image" =>"front\images\plasticBottles.jpeg"),          
+            array("name" => "latas de conserva", "image" =>"front\images\cans.jpeg"),
+            array("name" => "tetrabrik", "image" =>"front\images\boxTetrabrik.jpeg"),
+            array("name" => "envases de aluminio", "image" =>"front\images\aluminiumContainers.jpeg"),
+            array("name" => "botellas de vidrio", "image" =>"front\images\glassBottle.jpeg")
         );
         return $materials;
     }
