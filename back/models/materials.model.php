@@ -23,9 +23,9 @@ class MaterialsModel{
     }
 
     function insert($name, $condition) {
-        $query = $this->database->prepare('INSERT INTO `material`(`name`, `condition`) VALUES (?,?)');
+        /* $query = $this->database->prepare('INSERT INTO `material`(`name`, `condition`) VALUES (?,?)');
         $query->execute([$name, $condition]);
-        return $this->database->lastInsertId();
+        return $this->database->lastInsertId(); */
     }
 
 }

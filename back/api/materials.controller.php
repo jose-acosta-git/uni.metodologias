@@ -32,7 +32,7 @@
         }
 
         public function add() {
-            $body = $this->getData();
+            /* $body = $this->getData();
             $name = $body->name;
             $condition = $body->condition;            
             $id = $this->model->insert($name, $condition);
@@ -40,7 +40,7 @@
                 $this->view->response($id, 200);
             } else {
                 $this->view->response("No se pudo insertar", 404);
-            }   
+            }    */
         }
 
     }
