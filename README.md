@@ -1,4 +1,4 @@
-# Trabajo Práctico Especial - Metodología de desarrollo - 2021
+# Trabajo Práctico Especial - Metodología de desarrollo - 2021 --
 ## Equipo de desarrollo: 
 ## - Bayugar, Franco
 ## - Acosta, Jose
