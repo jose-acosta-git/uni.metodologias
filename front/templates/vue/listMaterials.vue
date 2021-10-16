@@ -13,7 +13,17 @@
                           <div class="col-md-8">
                             <div class="card-body">
                               <h5 class="card-title">{{material.name}}</h5>
-                              <p class="card-text"></p>
+                              
+                              <p>                             
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Condiciones de Entrega
+                                </button>
+                                </p>
+                                <div class="collapse" id="collapseMaterial" v-bind:id='material.name'>
+                                    <div class="card card-body">
+                                      {{material.condition}}
+                                    </div>
+                                  </div> 
                             </div>
                           </div>
                         </div>
