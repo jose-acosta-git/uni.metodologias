@@ -21,4 +21,12 @@ function initPage() {
         let materials = await r.json();
         listMaterials.list = materials;
     }
+    
+
+
 }
+let collapseMaterial = document.querySelector("#collapseMaterial"+{$id});
+collapseMaterial.addEventListener("click", e=>{
+    e.preventDefault();
+    console.log("entra")
+});

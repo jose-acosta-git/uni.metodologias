@@ -158,3 +158,23 @@ nav {
 
 
 /* FIN BARRA deNAVEGACION JUAN */
+.nav-link {
+    color: whitesmoke;
+}
+.material-accept-list{
+    display :flex;
+    flex-direction: column;
+    align-content: center;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    border: 2px solid rgba(25, 82, 33, 0.527);
+    border-radius: 25px;    
+}
+#materials{
+    list-style:none;
+}
+.materials-title{
+    margin-bottom: 25px;;
+}
