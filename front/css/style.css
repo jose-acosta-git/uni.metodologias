@@ -1,16 +1,160 @@
+/* PALETA COLORES */
+
+.first-color {
+    background: #062925;
+}
+
+.second-color {
+    background: #044a42;
+}
+
+.third-color {
+    background: #3a9188;
+}
+
+.fourth-color {
+    background: #b8e1dd;
+}
+
 legend.custom-fieldset {
-    width:inherit;
-    padding:0 10px;
-    border-bottom:none;
+    width: inherit;
+    padding: 0 10px;
+    border-bottom: none;
 }
 
 fieldset.custom-fieldset {
     border: 1px groove black !important;
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
-    border-radius:  5px;
+    border-radius: 5px;
 }
 
 label {
     cursor: pointer !important;
 }
+
+
+/* BARRA deNAVEGACION JUAN */
+
+nav {
+    padding: 20px 25px;
+    background-color: #044a42;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-family: "Century Gothic";
+    color: #fff;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin-left: 30px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Verdana;
+    font-size: 12px;
+    color: #fff;
+}
+
+#hamburger-toggle {
+    display: none;
+}
+
+.hamburger {
+    width: 30px;
+    height: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+}
+
+.hamburger .bar {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger .bar::before,
+.hamburger .bar::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.hamburger .bar::before {
+    transform: translateY(-10px);
+}
+
+.hamburger .bar::after {
+    transform: translateY(10px);
+}
+
+@media (max-width:600px) {
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #044a42;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    .nav-list li {
+        margin: 10px 0;
+    }
+    .nav-list li a {
+        display: inline-block;
+        font-size: 20px;
+        padding: 15px 20px;
+        transition: all 0.3s;
+    }
+    .nav-list li a:hover {
+        background-color: #fff;
+        color: #044a42;
+        transform: translateY(-10px);
+    }
+    .hamburger {
+        display: flex;
+        z-index: 999;
+    }
+    #hamburger-toggle:checked~.nav-list {
+        transform: none;
+    }
+    #hamburger-toggle:checked~.hamburger .bar::before {
+        transform: rotate(45deg);
+    }
+    #hamburger-toggle:checked~.hamburger .bar {
+        background-color: transparent;
+    }
+    #hamburger-toggle:checked~.hamburger .bar::after {
+        transform: rotate(-45deg);
+    }
+}
+
+
+/* FIN BARRA deNAVEGACION JUAN */
