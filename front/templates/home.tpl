@@ -1,26 +1,53 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <base href='{BASE_URL}'>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motoneta</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-</head>
-
-<body>
-    <ul id="materials">
-        {include file='./vue/listMaterials.vue'}
-    </ul>
-
-    <script type="text/javascript" src='front/js/scriptMaterials.js'></script>
-</body>
-
-
-</html>
+<div class="mx-4">
+    <div class="row">
+        <div class="col-lg-5 col-xl-4">
+            <fieldset class="custom-fieldset">
+                <legend class="custom-fieldset">Tengo elementos reciclables</legend>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input id="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Apellido</label>
+                        <input id="surname" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input id="address" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input id="phone" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-type">Tipo de viaje</label>
+                        <select id="trip-type" class="form-control">
+                            <option>Quiero que lo retiren</option>
+                            <option>Lo voy a llevar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="available-space">Espacio disponible</label>
+                        <input id="available-space" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="observations">Observaciones</label>
+                        <textarea id="observations" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cargar</button>
+                </form>
+            </fieldset>
+        </div>
+        <div class="col-lg-7 col-xl-8">
+            <fieldset class="custom-fieldset">
+                <legend class="custom-fieldset">Cartelera</legend>
+                <p>Sin implementar</p>
+            </fieldset>
+        </div>
+    </div>
+</div>

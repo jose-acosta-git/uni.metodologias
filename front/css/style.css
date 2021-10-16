@@ -1,0 +1,16 @@
+legend.custom-fieldset {
+    width:inherit;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+fieldset.custom-fieldset {
+    border: 1px groove black !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius:  5px;
+}
+
+label {
+    cursor: pointer !important;
+}

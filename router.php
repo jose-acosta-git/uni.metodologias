@@ -13,8 +13,12 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $iniciar);
 switch ($params[0]) {
     //lama al controlador para pasarle la accion correspondiente
-    case 'material':
-        $controller = new MaterialsController();
+    case 'home':
+        $controller = new MaterialController();
+        $controller->showHome();
+        break;
+    case 'materiales-aceptados':
+        $controller = new MaterialController();
         $controller->showMaterial();
     break;      
     default:
