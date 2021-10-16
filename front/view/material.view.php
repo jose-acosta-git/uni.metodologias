@@ -4,6 +4,7 @@
 
     class MaterialView {
 
+        // Muestra la página de inicio
         function showHome(){
             $smarty = new Smarty ();
             $smarty->display('front/templates/header.tpl');
