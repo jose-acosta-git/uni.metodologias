@@ -4,6 +4,32 @@ class MaterialsModel{
 
     private $database;
 
+    //Materiales hardcodeados
+    private $materials = array(
+        array(
+            "name" => "Papel",
+            "info" => "El papel a reciclar debe estar siempre limpio y seco. Además no se acepta papel encerado o parafinado, etiquetas adhesivas, papel higiénico-sanitario, papel alimentación, papel manchado de grasa, papel térmico de fax, papel fotográfico, papeles engomados, papeles de regalo o papeles pegados."
+        ), array(
+            "name" => "Carton",
+            "info" => "El cartón debe estar limpio y si es una caja también debe estar desarmada."
+        ), array(
+            "name" => "Envases plasticos",
+            "info" => "Se acepta cualquier envase que tenga un Código de Identificación Plástico o RIC (Resin Identification Code), a excepción de  los de yogur o queso blanco, los plásticos mezclados con otros materiales o los degradados por el sol."
+        ), array(
+            "name" => "Latas de conserva",
+            "info" => "No deben estar oxidadas."
+        ), array(
+            "name" => "Tetrabrik",
+            "info" => "Solo se aceptarán limpios, secos y aplastados."
+        ), array(
+            "name" => "Envases de aluminio",
+            "info" => "Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados."
+        ), array(
+            "name" => "Botellas de vidrio",
+            "info" => "Se aceptarán solo si estan limpias y secas."
+        )
+    );
+
     function __construct() {
         $this->database = $this->connect();
     }
@@ -15,11 +41,7 @@ class MaterialsModel{
     }
 
     function getAll(){
-        $materials = array(
-            array("name" => "plastico"),
-            array("name" => "carton")
-        );
-        return $materials;
+        return $this->materials;
     }
 
     function insert($name, $condition) {
