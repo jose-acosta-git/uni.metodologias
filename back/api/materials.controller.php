@@ -30,6 +30,11 @@
                 $this->view->response("No se encontraron materiales", 500);
             }   
         }
+        function showOneMaterial($name){
+            $oneMaterial = $this->model->get($name); 
+            $this->view->response($oneMaterial, 200);
+            
+        }
 
         public function add() {
             /* $body = $this->getData();

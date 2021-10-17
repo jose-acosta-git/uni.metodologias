@@ -158,6 +158,8 @@ nav {
 
 
 /* FIN BARRA deNAVEGACION JUAN */
+
+/* Estilos de materiales aceptados*/
 .nav-link {
     color: whitesmoke;
 }
@@ -169,7 +171,7 @@ nav {
     position: absolute;
     top: 25%;
     left: 25%;
-    border: 2px solid rgba(25, 82, 33, 0.527);
+    border: 2px solid #3a9188;
     border-radius: 25px;    
 }
 #materials{
@@ -178,3 +180,10 @@ nav {
 .materials-title{
     margin-bottom: 25px;;
 }
+.btn-material{
+    background-color:#044a42;
+    border-color: #b8e1dd;
+}
+
+
+
