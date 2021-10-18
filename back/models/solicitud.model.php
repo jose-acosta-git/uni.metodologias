@@ -23,10 +23,10 @@ class SolicitudModel
         //return $this->materials;
     }
 
-    function insert($date)
+    function insert($date, $image)
     {
-        $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`date`) VALUES (?)');
-        $query->execute([$date]);
+        $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`fecha_pedido`, `imagen`) VALUES (?,?)');
+        $query->execute([$date, $image]);
         return $this->database->lastInsertId();
     }
 }

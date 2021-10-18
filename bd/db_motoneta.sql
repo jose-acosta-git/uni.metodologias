@@ -58,7 +58,9 @@ CREATE TABLE `pedido_cartonero` (
   `id_ciudadano` int(11) NOT NULL,
   `fecha_pedido` date NOT NULL,
   `id_franja_horaria` int(11) NOT NULL,
-  `volumen_id_volumen` int(11) NOT NULL
+  `volumen_id_volumen` int(11) NOT NULL,
+  `imagen` varchar(100)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
