@@ -7,8 +7,8 @@ const listMaterials = new Vue({
                    
     },
     methods: {
-        //carga la cantidad de mesas que tengo en la constante
-        agregar() {
+        /** inicia la carga de los datos en el componente vue */
+        chargeData() {
             
         }
     }
@@ -48,7 +48,7 @@ Vue.component('button-material', {
     /** Template del boton y la caja de texto */
     template: `
     <p>
-    <button class="btn btn-success " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnMaterial" v-on:click='agrega()' >
+    <button class="btn btn-success " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnMaterial" v-on:click='chargeData()' >
       Ver condiciones de entrega
     </button>
     </p>
@@ -57,7 +57,7 @@ Vue.component('button-material', {
     methods: {
         /** Esta funcion carga en cada cuadro de texto la 
          * informacion de como deben ser entregados los materiales */
-        agrega: function() {           
+        chargeData: function() {           
             this.count=this.$el.id;            
             listMaterials.list.forEach(element => {
                 if (this.$el.id == element.name) {
