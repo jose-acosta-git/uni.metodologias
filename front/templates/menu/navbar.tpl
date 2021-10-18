@@ -1,5 +1,5 @@
 	<nav>
-		<h1 class="logo">logo</h1>
+		<h1 class="logo">Motoneta</h1>
 
 		<input type="checkbox" id="hamburger-toggle">
 		<label for="hamburger-toggle" class="hamburger">
