@@ -1,6 +1,6 @@
 <div class="mx-4">
     <div class="row">
-        <div class="col-lg-5 col-xl-4">
+        <div class="col-lg-5 col-xl-4 carga_elem_recicables">
             <fieldset class="custom-fieldset">
                 <legend class="custom-fieldset">Tengo elementos reciclables</legend>
                 <form>
@@ -47,7 +47,7 @@
                 </form>
             </fieldset>
         </div>
-        <div class="col-lg-7 col-xl-8">
+        <div class="col-lg-7 col-xl-8 cartelera">
             <fieldset class="custom-fieldset">
                 <legend class="custom-fieldset">Cartelera</legend>
                 <p>Sin implementar</p>
