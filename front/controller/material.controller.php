@@ -17,4 +17,5 @@
         function showMaterial(){
             $this->view->showMaterials();
         }
+        
     }

@@ -162,6 +162,42 @@ nav {
 
 
 /* FIN BARRA deNAVEGACION JUAN */
+<<<<<<< HEAD
+
+/* Estilos de materiales aceptados*/
+=======
+<<<<<<< HEAD
+>>>>>>> master
+.nav-link {
+    color: whitesmoke;
+}
+.material-accept-list{
+    display :flex;
+    flex-direction: column;
+    align-content: center;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    border: 2px solid #3a9188;
+    border-radius: 25px;    
+}
+#materials{
+    list-style:none;
+}
+.materials-title{
+    margin-bottom: 25px;;
+}
+<<<<<<< HEAD
+.btn-material{
+    background-color:#044a42;
+    border-color: #b8e1dd;
+}
+
+
+
+=======
+=======
 
 
 /* MUESTRA FONDOS EN BASE A PALETA */
@@ -173,3 +209,5 @@ nav {
 .cartelera {
     background-color: #3a9188;
 }
+>>>>>>> 316f13ff6de463ebf16694c42c41995c41196882
+>>>>>>> master
