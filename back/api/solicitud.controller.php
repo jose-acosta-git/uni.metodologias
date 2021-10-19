@@ -67,7 +67,7 @@ class SolicitudController
         $address = $address;
         $latitud2 = $this->getCoord($address)->data[0]->latitude;
         $longitud2 = $this->getCoord($address)->data[0]->longitude;
-        /* var_dump($this->getdistance($latitud1,$longitud1,$latitud2,$longitud2)); die(); */
+        //var_dump($this->haversineGreatCircleDistance($latitud1,$longitud1,$latitud2,$longitud2)); die();
         if (($this->getdistance($latitud1,$longitud1,$latitud2,$longitud2)) > 6){
             return true;
         }
