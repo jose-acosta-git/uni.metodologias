@@ -7,10 +7,13 @@
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
+SET SQL_MODE
+= "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT
+= 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone
+= "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,12 +31,18 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `ciudadano`
 --
 
-CREATE TABLE `ciudadano` (
-  `id_ciudadano` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `apellido` varchar(30) NOT NULL,
-  `direccion` varchar(50) NOT NULL,
-  `telefono` int(11) NOT NULL
+CREATE TABLE `ciudadano`
+(
+  `id_ciudadano` int
+(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar
+(30) NOT NULL,
+  `apellido` varchar
+(30) NOT NULL,
+  `direccion` varchar
+(50) NOT NULL,
+  `telefono` int
+(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,8 +51,10 @@ CREATE TABLE `ciudadano` (
 -- Estructura de tabla para la tabla `franja_horaria`
 --
 
-CREATE TABLE `franja_horaria` (
-  `id_franja_horaria` int(11) NOT NULL,
+CREATE TABLE `franja_horaria`
+(
+  `id_franja_horaria` int
+(11) NOT NULL AUTO_INCREMENT,
   `desde` time NOT NULL,
   `hasta` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -54,11 +65,18 @@ CREATE TABLE `franja_horaria` (
 -- Estructura de tabla para la tabla `pedido_cartonero`
 --
 
-CREATE TABLE `pedido_cartonero` (
-  `id_ciudadano` int(11) NOT NULL,
+CREATE TABLE `pedido_cartonero`
+(
+  `id_ciudadano` int
+(11) NOT NULL,
   `fecha_pedido` date NOT NULL,
-  `id_franja_horaria` int(11) NOT NULL,
-  `volumen_id_volumen` int(11) NOT NULL
+  `id_franja_horaria` int
+(11) NOT NULL,
+  `volumen_id_volumen` int
+(11) NOT NULL,
+  `imagen` varchar
+(100)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -67,9 +85,12 @@ CREATE TABLE `pedido_cartonero` (
 -- Estructura de tabla para la tabla `volumen`
 --
 
-CREATE TABLE `volumen` (
-  `id_volumen` int(11) NOT NULL,
-  `volumen` int(11) NOT NULL
+CREATE TABLE `volumen`
+(
+  `id_volumen` int
+(11) NOT NULL AUTO_INCREMENT,
+  `volumen` int
+(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -80,27 +101,33 @@ CREATE TABLE `volumen` (
 -- Indices de la tabla `ciudadano`
 --
 ALTER TABLE `ciudadano`
-  ADD PRIMARY KEY (`id_ciudadano`);
+ADD PRIMARY KEY
+(`id_ciudadano`);
 
 --
 -- Indices de la tabla `franja_horaria`
 --
 ALTER TABLE `franja_horaria`
-  ADD PRIMARY KEY (`id_franja_horaria`);
+ADD PRIMARY KEY
+(`id_franja_horaria`);
 
 --
 -- Indices de la tabla `pedido_cartonero`
 --
 ALTER TABLE `pedido_cartonero`
-  ADD PRIMARY KEY (`id_ciudadano`,`fecha_pedido`),
-  ADD KEY `fk_pedido_cartonero_franja_horaria` (`id_franja_horaria`),
-  ADD KEY `fk_pedido_cartonero_volumen` (`volumen_id_volumen`);
+ADD PRIMARY KEY
+(`id_ciudadano`,`fecha_pedido`),
+ADD KEY `fk_pedido_cartonero_franja_horaria`
+(`id_franja_horaria`),
+ADD KEY `fk_pedido_cartonero_volumen`
+(`volumen_id_volumen`);
 
 --
 -- Indices de la tabla `volumen`
 --
 ALTER TABLE `volumen`
-  ADD PRIMARY KEY (`id_volumen`);
+ADD PRIMARY KEY
+(`id_volumen`);
 
 --
 -- Restricciones para tablas volcadas
@@ -110,9 +137,15 @@ ALTER TABLE `volumen`
 -- Filtros para la tabla `pedido_cartonero`
 --
 ALTER TABLE `pedido_cartonero`
-  ADD CONSTRAINT `fk_pedido_cartonero_ciudadano` FOREIGN KEY (`id_ciudadano`) REFERENCES `ciudadano` (`id_ciudadano`),
-  ADD CONSTRAINT `fk_pedido_cartonero_franja_horaria` FOREIGN KEY (`id_franja_horaria`) REFERENCES `franja_horaria` (`id_franja_horaria`),
-  ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY (`volumen_id_volumen`) REFERENCES `volumen` (`id_volumen`);
+ADD CONSTRAINT `fk_pedido_cartonero_ciudadano` FOREIGN KEY
+(`id_ciudadano`) REFERENCES `ciudadano`
+(`id_ciudadano`),
+ADD CONSTRAINT `fk_pedido_cartonero_franja_horaria` FOREIGN KEY
+(`id_franja_horaria`) REFERENCES `franja_horaria`
+(`id_franja_horaria`),
+ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY
+(`volumen_id_volumen`) REFERENCES `volumen`
+(`id_volumen`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
