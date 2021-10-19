@@ -25,7 +25,7 @@ switch ($params[0]) {
         break;
     case 'solicitud-ciudadano':
         $controller = new SolicitudController();
-        $controller->addData();
+        $controller->getCoord();
         break;
     default:
         header("HTTP/1.0 404 Not Found");

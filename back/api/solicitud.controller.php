@@ -26,6 +26,47 @@ class SolicitudController
         $this->view = new MaterialView();
     }
 
+    function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+        $theta = $lon1 - $lon2;
+        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $miles = $dist * 60 * 1.1515;
+        $unit = strtoupper($unit);
+        
+        if ($unit == "K") {
+            return ($miles * 1.609344);
+        } else if ($unit == "N") {
+            return ($miles * 0.8684);
+        } else {
+            return $miles;
+        }
+    }
+
+    function getCoord($address = null){
+         /* localizacion */
+        $address = 'Reforma Universitaria, C. Arroyo Seco';
+        $queryString = http_build_query([
+            'access_key' => 'db466771716e4ba96ee3149e3e6ae48a',
+            'query' => $address,
+            'region' => 'Tandil',
+            'output' => 'json',
+            'limit' => 1,
+        ]);
+        $ch = curl_init(sprintf('%s?%s', 'http://api.positionstack.com/v1/forward', $queryString));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($ch);
+        curl_close($ch);
+        $apiResult = json_decode($json, true);
+        print_r($apiResult);
+    }
+
+  /*   function distancia($address){
+        $direccionBasurero = 'Reforma Universitaria, C. Arroyo Seco';
+        $latitud1 = getCoord($direccionBasurero).[0].[0].latitude;
+        return true;
+    } */
+
     function addData()
     {
         //control de datos obligatorios
@@ -44,7 +85,6 @@ class SolicitudController
             echo ('faltan datos obligatorios');
             die();
         }
-
 
         $realName = null;
         //controlo que este la imagen
@@ -69,6 +109,11 @@ class SolicitudController
         $surname = $_POST['surname'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
+
+       /*  if (distancia($address)){
+            echo ('La direccion se encuentra a mas de 6 km');
+            die();
+        } */
 
         $id_ciudadano = $this->ciudadanoModel->insert($name, $surname, $address, $phone);
 
