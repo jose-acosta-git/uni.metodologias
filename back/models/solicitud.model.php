@@ -27,5 +27,6 @@ class SolicitudModel
     {
         $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`id_ciudadano`, `fecha_pedido`, `id_franja_horaria`, `volumen_id_volumen`, `imagen`) VALUES (?,?,?,?,?)');
         $query->execute([$id_ciudadano, $date, $id_franja, $id_volumen, $image]);
+        return $this->database->lastInsertId();
     }
 }
