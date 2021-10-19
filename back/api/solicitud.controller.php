@@ -12,26 +12,23 @@ require_once('api.view.php');
 class SolicitudController
 {
 
-    private $model;
+    private $solicitudModel;
+    private $ciudadanoModel;
+
     private $view;
 
-
-    private function getData($params = null)
-    {
-        return json_decode($this->data);
-    }
 
     function __construct()
     {
         //$this->view = new AdminView();
         $this->solicitudModel = new SolicitudModel();
-        $this->volumenModel = new VolumenModel();
-        $this->franjaHorariaModel = new FranjaHorariaModel();
         $this->ciudadanoModel = new CiudadanoModel();
+        $this->view = new MaterialView();
     }
 
     function addData()
     {
+        //control de datos obligatorios
         if (empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['address']) || empty($_POST['phone'])) {
             //$this->view->showError('Faltan datos obligatorios')
             echo ('faltan datos obligatorios');
@@ -66,6 +63,7 @@ class SolicitudController
             }
         }
 
+
         //guardo lo que llega del form por post en variables
         $name = $_POST['name'];
         $surname = $_POST['surname'];
@@ -73,15 +71,13 @@ class SolicitudController
         $phone = $_POST['phone'];
 
         $id_ciudadano = $this->ciudadanoModel->insert($name, $surname, $address, $phone);
-        if ($franjahoraria != null) {
-            $id_franja = $this->franjaHorariaModel->insert($_POST['time-zone'], $_POST['materials-volume']);
-            $id_volumen = $this->volumenModel->insert($_POST['materials-volume']);
-        }
 
-        if ($realName != null) {
-            $this->solicitudModel->insert($id_ciudadano, date($_POST['time-zone']), $id_franja, $id_volumen, $realName);
-        } else {
-            $this->solicitudModel->insert($id_ciudadano, date($_POST['time-zone']), $id_franja, $id_volumen, null);
+        if ($franjahoraria != null) {
+            if ($realName != null) {
+                $this->solicitudModel->insert($id_ciudadano, date('d/m/y'), $id_franja, $id_volumen, $realName);
+            } else {
+                $this->solicitudModel->insert($id_ciudadano, date('d/m/y'), $id_franja, $id_volumen, null);
+            }
         }
 
         header("Location: " . BASE_URL . '');

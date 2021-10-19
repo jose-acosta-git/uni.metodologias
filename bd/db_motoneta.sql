@@ -42,7 +42,9 @@ CREATE TABLE `ciudadano`
   `direccion` varchar
 (50) NOT NULL,
   `telefono` int
-(11) NOT NULL
+(11) NOT NULL,
+    PRIMARY KEY
+(id_ciudadano)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,7 +56,7 @@ CREATE TABLE `ciudadano`
 CREATE TABLE `franja_horaria`
 (
   `id_franja_horaria` int
-(11) NOT NULL AUTO_INCREMENT,
+(11) NOT NULL,
   `desde` time NOT NULL,
   `hasta` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -88,21 +90,11 @@ CREATE TABLE `pedido_cartonero`
 CREATE TABLE `volumen`
 (
   `id_volumen` int
-(11) NOT NULL AUTO_INCREMENT,
+(11) NOT NULL,
   `volumen` int
 (11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `ciudadano`
---
-ALTER TABLE `ciudadano`
-ADD PRIMARY KEY
-(`id_ciudadano`);
 
 --
 -- Indices de la tabla `franja_horaria`
@@ -147,6 +139,35 @@ ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY
 (`volumen_id_volumen`) REFERENCES `volumen`
 (`id_volumen`);
 COMMIT;
+
+/* CORRER PRIMERO LO DE ARRIBA, LUEGO LO DE ABAJO */
+
+INSERT INTO `franja_horaria`(`
+id_franja_horaria`,
+`desde
+`, `hasta`) VALUES
+(1,'09:00:00','12:00:00');
+INSERT INTO `franja_horaria`(`
+id_franja_horaria`,`desde
+`, `hasta`) VALUES
+(2,'13:00:00','17:00:00');
+
+INSERT INTO `volumen`(`
+id_volumen`,`volumen
+`) VALUES
+(1,'Caja');
+INSERT INTO `volumen`(`
+id_volumen`,`volumen
+`) VALUES
+(2,'Baul de auto');
+INSERT INTO `volumen`(`
+id_volumen`,`volumen
+`) VALUES
+(3,'Caja de camioneta');
+INSERT INTO `volumen`(`
+id_volumen`,`volumen
+`) VALUES
+(4,'Camion');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
