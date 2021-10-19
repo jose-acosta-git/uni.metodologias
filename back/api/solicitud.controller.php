@@ -74,9 +74,9 @@ class SolicitudController
 
         if ($franjahoraria != null) {
             if ($realName != null) {
-                $this->solicitudModel->insert($id_ciudadano, date('d/m/y'), $id_franja, $id_volumen, $realName);
+                $this->solicitudModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], $realName);
             } else {
-                $this->solicitudModel->insert($id_ciudadano, date('d/m/y'), $id_franja, $id_volumen, null);
+                $this->solicitudModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], null);
             }
         }
 
@@ -84,9 +84,10 @@ class SolicitudController
     }
 
 
+    //generacion automatica de imagen
     function uniqueRealName($realName, $tempName)
     {
-        $filePath = "resources/images" . uniqid("", true) . "."
+        $filePath = "resources/images/" . uniqid("", true) . "."
             . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
 
         move_uploaded_file($tempName, $filePath);
