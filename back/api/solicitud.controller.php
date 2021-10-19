@@ -25,7 +25,8 @@ class SolicitudController
         $this->ciudadanoModel = new CiudadanoModel();
         $this->view = new MaterialView();
     }
-
+    
+    /*Calcula distancia entre dos puntos cardinales*/    
     function getdistance($lat1, $lon1, $lat2, $lon2, $unit = 'K') {
         $theta = $lon1 - $lon2;
         $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -42,7 +43,8 @@ class SolicitudController
             return $miles;
         }
     } 
-   
+    
+    /*Obtiene coordenadas de una direccion*/
     function getCoord($address = null){
          /* localizacion */
         $queryString = http_build_query([
@@ -60,6 +62,7 @@ class SolicitudController
         return ($apiResult);
     }
 
+    /*Controla que la distancia no supere la maxima*/
     function distanciamayor($address = null){
         $direccionBasurero = 'Sandino 800';
         $latitud1 = $this->getCoord($direccionBasurero)->data[0]->latitude;
@@ -75,7 +78,8 @@ class SolicitudController
         //$latitud1 = getCoord($direccionBasurero)->data->results->latitude;
         //return true;
     } 
-
+    
+    /*Agrega datos personales requeridos*/
     function addData()
     {
         //control de datos obligatorios
