@@ -42,7 +42,7 @@
                     </div>
                     {/literal}
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary text-end text-right">Cargar</button>
+                        <button type="submit" class="btn btn-primary text-end text-right custom-button">Cargar</button>
                     </div>
                 </form>
             </fieldset>

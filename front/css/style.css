@@ -39,7 +39,17 @@ label {
 .form-control:focus {
     border-color: #3a9188;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(49, 160, 154);
-  }
+}
+
+.custom-button{
+    background: #2a746c;
+    border-color: #2a746c;
+}
+
+.custom-button:hover{
+    background: #044a42;
+    border-color: #044a42;
+}
 
 /* BARRA deNAVEGACION JUAN */
 
