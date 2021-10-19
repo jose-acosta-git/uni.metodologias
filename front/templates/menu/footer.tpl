@@ -1,3 +1,10 @@
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="w-100 text-center">
+                Copyrights &copy; 2021 Todos los derechos reservados por Motoneta.
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript" src='front/js/tripType.js'></script>
     <script type="text/javascript" src='front/js/scriptMaterials.js'></script>
