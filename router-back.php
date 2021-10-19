@@ -1,17 +1,20 @@
 <?php
- 
-    /* Incluyo la libreria para el ruteo */
-    include_once 'lib/Router.php';
-    /* Incluyo el controlador de profesiones y comemtarios*/
-    include_once 'back/api/materials.controller.php';
 
-    /* creo el ruteo */
-    $router = new Router();
+/* Incluyo la libreria para el ruteo */
+include_once 'lib/Router.php';
+/* Incluyo el controlador de profesiones y comemtarios*/
+include_once 'back/api/materials.controller.php';
 
-    /* Creando la tabla de ruteo */
+/* creo el ruteo */
+$router = new Router();
 
-    /* Obtiene todos los materiales */
-    $router->addRoute('material', 'GET', 'MaterialsController' , 'getAll');
+/* Creando la tabla de ruteo */
 
-    /* rutea -> obteniendo el RECURSO y el METODO por el que me llamaron */
-    $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
+/* Obtiene todos los materiales */
+$router->addRoute('material', 'GET', 'MaterialsController', 'getAll');
+
+$router->addRoute('solicitud-ciudadano', 'POST', 'SolicitudController', 'addData');
+
+
+/* rutea -> obteniendo el RECURSO y el METODO por el que me llamaron */
+$router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

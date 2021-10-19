@@ -3,28 +3,28 @@
         <div class="col-lg-5 col-xl-4">
             <fieldset class="custom-fieldset">
                 <legend class="custom-fieldset">Tengo elementos reciclables</legend>
-                <form>
+                <form action="solicitud-ciudadano" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input id="name" type="text" class="form-control">
+                        <input id="name" type="text" name="name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="surname">Apellido</label>
-                        <input id="surname" type="text" class="form-control">
+                        <input id="surname" type="text" name="surname" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input id="address" type="text" class="form-control">
+                        <input id="address" type="text" name="address" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="phone">Teléfono</label>
-                        <input id="phone" type="text" class="form-control">
+                        <input id="phone" type="text" name ="phone" class="form-control">
                     </div>
                     {literal}
                     <div id="tripType">
                         <div class="form-group">
                             <label for="trip-type">Tipo de viaje</label>
-                            <select id="trip-type" class="form-control" v-on:change="onTripTypeChange($event)">
+                            <select id="trip-type" name="trip-type" class="form-control" v-on:change="onTripTypeChange($event)">
                                 <option value="another">Quiero que lo retiren</option>
                                 <option value="me">Lo voy a llevar</option>
                             </select>
@@ -41,6 +41,8 @@
                         </div>
                     </div>
                     {/literal}
+                                <input type="file" name="imageUpload" id="imageToUpload" class="mt-2 mb-2">
+
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary text-end text-right">Cargar</button>
                     </div>

@@ -23,10 +23,9 @@ class SolicitudModel
         //return $this->materials;
     }
 
-    function insert($date, $image)
+    function insert($id_ciudadano, $date, $id_franja, $id_volumen, $image)
     {
-        $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`fecha_pedido`, `imagen`) VALUES (?,?)');
-        $query->execute([$date, $image]);
-        return $this->database->lastInsertId();
+        $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`id_ciudadano`, `fecha_pedido`, `id_franja_horaria`, `volumen_id_volumen`, `imagen`) VALUES (?,?,?,?,?)');
+        $query->execute([$id_ciudadano, $date, $id_franja, $id_volumen, $image]);
     }
 }
