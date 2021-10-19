@@ -47,7 +47,7 @@ Vue.component('button-material', {
     },
     /** Template del boton y la caja de texto */
     template: `
-    <p>
+    <p class="m-0">
     <button class="btn btn-success " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="btnMaterial" v-on:click='chargeData()' >
       Ver condiciones de entrega
     </button>
