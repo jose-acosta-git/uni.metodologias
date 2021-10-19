@@ -26,7 +26,7 @@ class SolicitudController
         $this->view = new MaterialView();
     }
 
-    function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+    function getdistance($lat1, $lon1, $lat2, $lon2, $unit = 'K') {
         $theta = $lon1 - $lon2;
         $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
         $dist = acos($dist);
@@ -35,21 +35,20 @@ class SolicitudController
         $unit = strtoupper($unit);
         
         if ($unit == "K") {
-            return ($miles * 1.609344);
+            return (($miles * 1.609344)/100) ;
         } else if ($unit == "N") {
             return ($miles * 0.8684);
         } else {
             return $miles;
         }
-    }
-
+    } 
+   
     function getCoord($address = null){
          /* localizacion */
-        $address = 'Reforma Universitaria, C. Arroyo Seco';
         $queryString = http_build_query([
             'access_key' => 'db466771716e4ba96ee3149e3e6ae48a',
             'query' => $address,
-            'region' => 'Tandil',
+            'region' => 'Tandil, Provincia de Buenos Aires, Argentina',
             'output' => 'json',
             'limit' => 1,
         ]);
@@ -57,15 +56,25 @@ class SolicitudController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $json = curl_exec($ch);
         curl_close($ch);
-        $apiResult = json_decode($json, true);
-        print_r($apiResult);
+        $apiResult = json_decode($json);
+        return ($apiResult);
     }
 
-  /*   function distancia($address){
-        $direccionBasurero = 'Reforma Universitaria, C. Arroyo Seco';
-        $latitud1 = getCoord($direccionBasurero).[0].[0].latitude;
-        return true;
-    } */
+    function distanciamayor($address = null){
+        $direccionBasurero = 'Sandino 800';
+        $latitud1 = $this->getCoord($direccionBasurero)->data[0]->latitude;
+        $longitud1 = $this->getCoord($direccionBasurero)->data[0]->longitude;
+        $address = $address;
+        $latitud2 = $this->getCoord($address)->data[0]->latitude;
+        $longitud2 = $this->getCoord($address)->data[0]->longitude;
+        /* var_dump($this->getdistance($latitud1,$longitud1,$latitud2,$longitud2)); die(); */
+        if (($this->getdistance($latitud1,$longitud1,$latitud2,$longitud2)) > 6){
+            return true;
+        }
+        return false;
+        //$latitud1 = getCoord($direccionBasurero)->data->results->latitude;
+        //return true;
+    } 
 
     function addData()
     {
@@ -109,11 +118,10 @@ class SolicitudController
         $surname = $_POST['surname'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
-
-       /*  if (distancia($address)){
+        if ($this->distanciamayor($address)){
             echo ('La direccion se encuentra a mas de 6 km');
             die();
-        } */
+        }
 
         $id_ciudadano = $this->ciudadanoModel->insert($name, $surname, $address, $phone);
 
