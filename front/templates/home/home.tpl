@@ -1,7 +1,7 @@
-<div class="mx-4">
+<div class="m-4">
     <div class="row">
-        <div class="col-lg-5 col-xl-4 carga_elem_recicables">
-            <fieldset class="custom-fieldset">
+        <div class="col-lg-5 col-xl-4">
+            <fieldset class="custom-fieldset fourth-color">
                 <legend class="custom-fieldset">Tengo elementos reciclables</legend>
                 <form action="solicitud-ciudadano" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
@@ -41,16 +41,14 @@
                         </div>
                     </div>
                     {/literal}
-                                <input type="file" name="imageUpload" id="imageToUpload" class="mt-2 mb-2">
-
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary text-end text-right">Cargar</button>
                     </div>
                 </form>
             </fieldset>
         </div>
-        <div class="col-lg-7 col-xl-8 cartelera">
-            <fieldset class="custom-fieldset">
+        <div class="col-lg-7 col-xl-8">
+            <fieldset class="custom-fieldset fourth-color">
                 <legend class="custom-fieldset">Cartelera</legend>
                 <p>Sin implementar</p>
             </fieldset>
