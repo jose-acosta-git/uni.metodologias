@@ -9,8 +9,6 @@
 		<ul class="nav-list">
 			<li> <a href="#">Home</a> </li>
 			<li> <a href="materiales-aceptados">Materiales Aceptados</a> </li>
-			<li> <a href="#">Nosotros</a> </li>
-            <li> <a href="#">Contacto</a> </li>          
 		</ul>
 
 	</nav>
