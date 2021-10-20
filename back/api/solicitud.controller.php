@@ -25,7 +25,6 @@ class SolicitudController
         $this->ciudadanoModel = new CiudadanoModel();
         $this->view = new MaterialView();
     }
-
     /*Calcula distancia entre dos puntos cardinales*/    
     function getdistance($lat1, $lon1, $lat2, $lon2, $unit = 'K') {
         $theta = $lon1 - $lon2;
