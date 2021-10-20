@@ -3,7 +3,7 @@
         <div class="col-lg-5 col-xl-4">
             <fieldset class="custom-fieldset fourth-color">
                 <legend class="custom-fieldset">Tengo elementos reciclables</legend>
-                <form action="solicitud-ciudadano" method="POST" enctype="multipart/form-data">
+                <form id="form-ciudadano" action="solicitud-ciudadano" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input id="name" type="text" name="name" class="form-control">
@@ -14,32 +14,33 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input id="address" type="text" name="address" class="form-control">
+                        <input id="address" type="text" name="address" class="form-control" data-dismiss="alert">
                     </div>
                     <div class="form-group">
                         <label for="phone">Teléfono</label>
-                        <input id="phone" type="text" name ="phone" class="form-control">
+                        <input id="phone" type="text" name="phone" class="form-control">
                     </div>
                     {literal}
-                    <div id="tripType">
-                        <div class="form-group">
-                            <label for="trip-type">Tipo de viaje</label>
-                            <select id="trip-type" name="trip-type" class="form-control" v-on:change="onTripTypeChange($event)">
-                                <option value="another">Quiero que lo retiren</option>
-                                <option value="me">Lo voy a llevar</option>
-                            </select>
-                        </div>
-                        <div v-if="tripTypeValue == 'me'">
-                    {/literal}
+                        <div id="tripType">
+                            <div class="form-group">
+                                <label for="trip-type">Tipo de viaje</label>
+                                <select id="trip-type" name="trip-type" class="form-control"
+                                    v-on:change="onTripTypeChange($event)">
+                                    <option value="another">Quiero que lo retiren</option>
+                                    <option value="me">Lo voy a llevar</option>
+                                </select>
+                            </div>
+                            <div v-if="tripTypeValue == 'me'">
+                            {/literal}
                             {include file='./tripTypeMe.tpl'}
-                    {literal}
-                        </div>
-                        <div v-else-if="tripTypeValue == 'another'">
-                    {/literal}
+                            {literal}
+                            </div>
+                            <div v-else-if="tripTypeValue == 'another'">
+                            {/literal}
                             {include file='./tripTypeAnother.tpl'}
-                    {literal}
+                            {literal}
+                            </div>
                         </div>
-                    </div>
                     {/literal}
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary text-end text-right custom-button">Cargar</button>
@@ -56,4 +57,4 @@
     </div>
 </div>
 
-
+{* <script type="text/javascript" src='./front/js/geolocation.js'></script> *}
