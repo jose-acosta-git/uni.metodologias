@@ -151,4 +151,8 @@ class SolicitudController
 
         return $filePath;
     }
+
+    function listRequests() {
+
+    }
 }
