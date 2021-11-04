@@ -4,6 +4,7 @@
 
     class RequestView {
 
+        //Imprime el template de pedidos de retiro
         function showRequests() {
             $smarty = new Smarty();
             $smarty->display('front/templates/menu/header.tpl');

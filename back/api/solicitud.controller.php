@@ -155,6 +155,7 @@ class SolicitudController
         return $filePath;
     }
 
+    //Imprime el listado de pedidos de retiro
     function listRequests() {
         $this->requestView->showRequests();
     }
