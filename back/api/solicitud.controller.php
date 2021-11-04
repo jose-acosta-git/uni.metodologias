@@ -8,6 +8,7 @@ require_once('back/models/ciudadano.model.php');
 
 
 require_once('api.view.php');
+require_once('front/view/request.view.php');
 
 class SolicitudController
 {
@@ -16,6 +17,7 @@ class SolicitudController
     private $ciudadanoModel;
 
     private $view;
+    private $requestView;
 
 
     function __construct()
@@ -24,6 +26,7 @@ class SolicitudController
         $this->solicitudModel = new SolicitudModel();
         $this->ciudadanoModel = new CiudadanoModel();
         $this->view = new MaterialView();
+        $this->requestView = new RequestView();
     }
     
     /*Calcula distancia entre dos puntos cardinales*/    
@@ -150,5 +153,10 @@ class SolicitudController
         move_uploaded_file($tempName, $filePath);
 
         return $filePath;
+    }
+
+    //Imprime el listado de pedidos de retiro
+    function listRequests() {
+        $this->requestView->showRequests();
     }
 }
