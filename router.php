@@ -27,6 +27,10 @@ switch ($params[0]) {
         $controller = new SolicitudController();
         $controller->addData();
         break;
+    case 'listado-pedidos':
+        $controller = new SolicitudController();
+        $controller->listRequests();
+        break;
     default:
         header("HTTP/1.0 404 Not Found");
         echo ('404 Page not found');
