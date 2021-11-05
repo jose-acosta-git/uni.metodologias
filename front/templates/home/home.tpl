@@ -16,6 +16,9 @@
                         <label for="address">Dirección</label>
                         <input id="address" type="text" name="address" class="form-control" data-dismiss="alert">
                     </div>
+                    {if (($msg!=null) && ($type!=null) && ($type=='distancia'))}
+                        <div id="alertDirection" data-toggle="alert" class='alert alert-danger visible'>{$msg}</div>
+                    {/if}
                     <div class="form-group">
                         <label for="phone">Teléfono</label>
                         <input id="phone" type="text" name="phone" class="form-control">
@@ -57,4 +60,4 @@
     </div>
 </div>
 
-{* <script type="text/javascript" src='./front/js/geolocation.js'></script> *}
+<script type="text/javascript" src='./front/js/home.js'></script>

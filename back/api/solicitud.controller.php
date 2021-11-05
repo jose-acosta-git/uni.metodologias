@@ -130,7 +130,8 @@ class SolicitudController
         $phone = $_POST['phone'];
 
         if ($this->distanciamayor($address)){
-            echo ('La direccion se encuentra a mas de 6 km');
+            $this->view->showHome('distancia','La direccion ingresada esta muy lejos del campus universitario');
+            //echo ('La direccion se encuentra a mas de 6 km');
             die();
         }
 
