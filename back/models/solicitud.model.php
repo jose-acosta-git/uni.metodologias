@@ -25,7 +25,7 @@ class SolicitudModel
 
     function getAllOrders()
     {
-        $query = $this->database->prepare('SELECT * FROM `pedido_cartonero`');
+        $query = $this->database->prepare('SELECT * FROM `pedido_cartonero` p INNER JOIN `ciudadano` c ON p.id_ciudadano = c.id_ciudadano');
         $query->execute();
         return $this->database->lastInsertId();
     }
