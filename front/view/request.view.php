@@ -10,6 +10,7 @@
             $smarty->display('front/templates/menu/header.tpl');
             $smarty->display('front/templates/menu/navbar.tpl');
             $smarty->display('front/templates/secretary/request.tpl');
+            $smarty->display('front/templates/secretary/list_of_orders.tpl'); //JUAN
             $smarty->display('front/templates/menu/footer.tpl');
         }
 
