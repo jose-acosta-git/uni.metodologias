@@ -31,6 +31,10 @@ switch ($params[0]) {
         $controller = new SolicitudController();
         $controller->listRequests();
         break;
+    case 'insertar-material':
+        $controller = new MaterialController();
+        $controller->insertMaterial();
+        break;
     default:
         header("HTTP/1.0 404 Not Found");
         echo ('404 Page not found');
