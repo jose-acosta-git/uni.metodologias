@@ -88,6 +88,16 @@ CREATE TABLE `volumen`
   `volumen` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Estructura de tabla para la tabla `material_aceptado`
+
+CREATE TABLE material_aceptado (
+    id_material int NOT NULL AUTO_INCREMENT,
+    nombre_material varchar(30) NOT NULL,
+    condicion_entrega text NOT NULL,
+    imagen_material varchar(100) NOT NULL,
+    CONSTRAINT pk_material_aceptado PRIMARY KEY (id_material)
+);
+
 
 --
 -- Indices de la tabla `franja_horaria`
@@ -131,6 +141,16 @@ INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(1,'Caja');
 INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(2,'Baul de auto');
 INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(3,'Caja de camioneta');
 INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(4,'Camion');
+
+INSERT INTO `material_aceptado` (`nombre_material`, `condicion_entrega`, `imagen_material`) VALUES
+('Papel', 'El papel a reciclar debe estar siempre limpio y seco. Además no se acepta papel encerado o parafinado, etiquetas adhesivas, papel higiénico-sanitario, papel alimentación, papel manchado de grasa, papel térmico de fax, papel fotográfico, papeles engomados, papeles de regalo o papeles pegados.', './front/images/paper.jpeg'),
+('Carton', 'El cartón debe estar limpio y si es una caja también debe estar desarmada.', './front/images/cardboard.jpeg'),
+('Envases plasticos', 'Se acepta cualquier envase que tenga un Código de Identificación Plástico o RIC (Resin Identification Code), a excepción de  los de yogur o queso blanco, los plásticos mezclados con otros materiales o los degradados por el sol.', './front/images/plasticBottles.jpeg'),
+('Latas de conserva', 'No deben estar oxidadas.', './front/images/cans.jpeg'),
+('Tetrabrik', 'Solo se aceptarán limpios, secos y aplastados.', './front/images/boxTetrabrik.jpeg'),
+('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './front/images/aluminiumContainers.jpeg'),
+('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './front/images/glassBottle.jpeg');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

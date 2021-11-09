@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <base href='{BASE_URL}'>
     <meta charset="UTF-8">
@@ -13,5 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT9YGagAyjdrNJB5raoxx9QFT-Mf0hzjQ&libraries=geometry">
+    </script>
 </head>
+
 <body>
