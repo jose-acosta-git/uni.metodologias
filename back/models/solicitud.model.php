@@ -23,6 +23,13 @@ class SolicitudModel
         //return $this->materials;
     }
 
+    function getAllOrders()
+    {
+        $query = $this->database->prepare('SELECT * FROM `pedido_cartonero` p INNER JOIN `ciudadano` c ON p.id_ciudadano = c.id_ciudadano');
+        $query->execute();
+        return $this->database->lastInsertId();
+    }
+
     function insert($id_ciudadano, $date, $id_franja, $id_volumen, $image)
     {
         $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`id_ciudadano`, `fecha_pedido`, `id_franja_horaria`, `volumen_id_volumen`, `imagen`) VALUES (?,?,?,?,?)');
