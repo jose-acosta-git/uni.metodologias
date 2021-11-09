@@ -35,6 +35,10 @@ switch ($params[0]) {
         $controller = new MaterialController();
         $controller->insertMaterial();
         break;
+    case 'editar-material':
+        $controller = new MaterialController();
+        $controller->editMaterial($params[1]);
+        break;
     default:
         header("HTTP/1.0 404 Not Found");
         echo ('404 Page not found');

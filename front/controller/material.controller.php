@@ -1,7 +1,7 @@
 <?php
 
     include_once 'front/view/material.view.php';
-    include_once 'models/materials.model.php';
+    include_once 'back/models/materials.model.php';
 
     class MaterialController{
 
@@ -33,14 +33,13 @@
                 die();
             }
 
-            if ($_FILES['image']['type'] == "image/jpg" || 
-            $_FILES['image']['type'] == "image/jpeg" || 
-            $_FILES['image']['type'] == "image/png" )
+            if ($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png" )
             {
                 $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
                 $this->model->insert($name, $condition, $realName);
             } else {
                 //TODO imprimir error en formulario de alta de material: imagen invalida
+                die();
             }
 
             header("Location: " . BASE_URL . '');
@@ -53,6 +52,36 @@
             return $filePath;
         }
 
+        //Modifica un material de la base de datos, dados los cambios que llegan por metodo POST
+        //Supone que se envian por POST todos los datos, no solo los modificados
+        function editMaterial($id) {
 
+            //checkea que existe el material que se quiere editar
+            $material = $this->model->getById($id);
+            if (!$material) {
+                //TODO informar que el material que se quiere editar no existe
+                die();
+            }
+
+            $name = $_POST['name'];
+            $condition = $_POST['condition'];
+            $image = $_POST['image'];
+            
+            //verifico que los campos no estén vacíos
+            if (empty($name) || empty($condition) || empty($image)) {
+                //TODO imprimir error en formulario de edicion de material: no puede haber un campo vacio
+                die();
+            }
+
+            if ($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png" )
+            {
+                $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
+                $this->model->editMaterial($realName, $name, $condition, $image);
+            } else {
+                //TODO imprimir error formato de imagen inválido
+                die();
+            }
+            header("Location: " . BASE_URL . '');
+        }
 
     }

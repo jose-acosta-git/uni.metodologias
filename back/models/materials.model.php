@@ -58,4 +58,19 @@ class MaterialsModel{
         return $this->database->lastInsertId();
     }
 
+    //Obtiene un material de la base de datos dado el id
+    function getById($id) {
+        $query = $this->database->prepare('SELECT * FROM `material_aceptado` WHERE id = ?');
+        $query->execute([$id]);
+        $material = $query->fetch(PDO::FETCH_OBJ);
+        return $material;
+    }
+
+    //Modifica los datos de un material dado su id
+    function editMaterial($id, $name, $condition, $image) {
+        $query = $this->database->prepare('UPDATE material_aceptado SET nombre_material = ?, condicion_entrega = ?, imagen_material = ? WHERE id = ?');
+        $query->execute($name, $condition, $image, $id);
+        return $this->database->lastInsertId();
+    }
+
 }
