@@ -21,6 +21,7 @@
             $this->view->showMaterials();
         }
 
+        //inserta un material que llega por metodo POST a la base de datos
         function insertMaterial() {
             $name = $_POST['name'];
             $condition = $_POST['condition'];
@@ -51,5 +52,7 @@
             move_uploaded_file($tempName, $filePath);
             return $filePath;
         }
+
+
 
     }

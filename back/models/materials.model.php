@@ -51,6 +51,7 @@ class MaterialsModel{
         return $this->materials;
     }
 
+    //Inserta un material que llega por parametro a la base de datos
     function insert($name, $condition, $image) {
         $query = $this->database->prepare('INSERT INTO `material_aceptado`(`nombre_material`, `condicion_entrega`, `imagen_material`) VALUES (?,?,?)');
         $query->execute([$name, $condition, $image]);
