@@ -73,4 +73,10 @@ class MaterialsModel{
         return $this->database->lastInsertId();
     }
 
+    //Elimina un material de la base de datos, dado su id
+    function deleteMaterial($id) {
+        $query = $this->database->prepare('DELETE FROM material_aceptado WHERE id = ?');
+        $query->execute([$id]);
+    }
+
 }

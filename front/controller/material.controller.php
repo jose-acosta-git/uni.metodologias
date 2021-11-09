@@ -84,4 +84,15 @@
             header("Location: " . BASE_URL . '');
         }
 
+        //Elimina un material de la base de datos
+        function deleteMaterial($id) {
+            //checkea que existe el material que se quiere eliminar
+            $material = $this->model->getById($id);
+            if (!$material) {
+                //TODO informar que el material que se quiere eliminar no existe
+                die();
+            }
+            $this->model->deleteMaterial($id);
+            header("Location: " . BASE_URL . '');
+        }
     }
