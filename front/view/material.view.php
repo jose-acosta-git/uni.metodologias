@@ -23,4 +23,6 @@
             $smarty->display('front/templates/materials.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
+        
+          
     }
