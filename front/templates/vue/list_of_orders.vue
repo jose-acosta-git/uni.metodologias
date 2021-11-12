@@ -4,7 +4,7 @@
         <fieldset class="custom-fieldset fourth-color">
             <legend class="custom-fieldset">Lista de pedidos por retirar</legend>
             <section id="listOrders" class="col-12">
-                <ul v-else class="row list-group mt-5">
+                <ul class="row list-group mt-5">
                     <li v-for="order in list" class="list-group-item d-flex justify-content-between">
                         <div class="font-italic">Apellido: {{ order.apellido }}</div>
                         <div class="font-italic">Domicilio: {{ order.domicilio }}</div>

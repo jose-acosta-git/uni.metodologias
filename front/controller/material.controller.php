@@ -12,10 +12,10 @@
             $this->view = new MaterialView();
             $this->model = new MaterialsModel();
         }
-
         function showHome(){
             $this->view->showHome();
         }
+        /**Muestra pagina de materiales que se aceptan */
 
         function showMaterial(){
             $this->view->showMaterials();
@@ -95,4 +95,8 @@
             $this->model->deleteMaterial($id);
             header("Location: " . BASE_URL . '');
         }
+
+
+       
+
     }

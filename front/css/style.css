@@ -190,7 +190,6 @@ nav {
 .material-accept-list {
     display: flex;
     flex-direction: column;
-    align-content: center;
     border: 2px solid #3a9188;
     border-radius: 25px;
 }
@@ -204,10 +203,7 @@ nav {
     ;
 }
 
-.btn-material {
-    background-color: #044a42;
-    border-color: #b8e1dd;
-}
+
 
 .footer-copyright {
     color: rgba(255, 255, 255, 0.9);
@@ -215,4 +211,28 @@ nav {
     padding: 40px 0;
     font-size: .875rem;
     line-height: 1.8;
+}
+.card{
+    align-items: center;
+
+}
+.card-img{
+    display: flex;
+    align-content: center;
+    height: 100%;
+    margin: 2%;
+    
+}
+
+.imge{
+    align-self: center;
+}
+
+.card-title{
+    padding-top: 25px;
+}
+@media (max-width:600px) {
+    .material-info{
+        width:250px;
+    }
 }
