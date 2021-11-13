@@ -27,7 +27,7 @@ class SolicitudModel
     {
         $query = $this->database->prepare('SELECT * FROM `pedido_cartonero` p INNER JOIN `ciudadano` c ON p.id_ciudadano = c.id_ciudadano');
         $query->execute();
-        return $this->database->lastInsertId();
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function insert($id_ciudadano, $date, $id_franja, $id_volumen, $image)
@@ -35,5 +35,12 @@ class SolicitudModel
         $query = $this->database->prepare('INSERT INTO `pedido_cartonero`(`id_ciudadano`, `fecha_pedido`, `id_franja_horaria`, `volumen_id_volumen`, `imagen`) VALUES (?,?,?,?,?)');
         $query->execute([$id_ciudadano, $date, $id_franja, $id_volumen, $image]);
         return $this->database->lastInsertId();
+    }
+
+    function getFilterOrders($fechaDesde, $fechaHasta)
+    {
+        $query = $this->database->prepare('SELECT * FROM `pedido_cartonero` p INNER JOIN `ciudadano` c ON p.id_ciudadano = c.id_ciudadano WHERE fecha_pedido BETWEEN ? AND ?');
+        $query->execute([$fechaDesde, $fechaHasta]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }

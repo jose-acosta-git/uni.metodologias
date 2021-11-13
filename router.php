@@ -39,6 +39,10 @@ switch ($params[0]) {
         $controller = new MaterialController();
         $controller->showMaterialForm();
         break;
+     case 'pedidos-filtrados':
+        $controller = new SolicitudController();
+        $controller->getFilterOrders();
+        break;       
     case 'insertar-material':
         $controller = new MaterialController();
         $controller->insertMaterial();
