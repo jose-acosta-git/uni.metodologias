@@ -12,13 +12,10 @@ $router = new Router();
 /* Creando la tabla de ruteo */
 
 /* Obtiene todos los materiales */
-$router->addRoute('material', 'GET', 'MaterialsController', 'getAll');
-
 $router->addRoute('solicitud-ciudadano', 'POST', 'SolicitudController', 'addData');
 $router->addRoute('orders', 'GET', 'List_of_Orders_Controller', 'getAllOrders');
 
 $router->addRoute('orders/:date1/:date2', 'GET', 'List_of_Orders_Controller', 'getFilterOrders');
-
 
 /* rutea -> obteniendo el RECURSO y el METODO por el que me llamaron */
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
