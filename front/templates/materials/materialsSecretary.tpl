@@ -1,4 +1,4 @@
-<div id="materials" class="container my-5">
+<div class="container my-5">
     <div class="secretary-materials-table">
         <div class="row d-flex">
             <div class="col-3 col-md-2">Título</div>

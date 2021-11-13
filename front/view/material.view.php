@@ -21,7 +21,7 @@
             $smarty->display('front/templates/menu/header.tpl');
             $smarty->display('front/templates/menu/navbar.tpl');
             $smarty->assign('materials', $materials);
-            $smarty->display('front/templates/materials.tpl');
+            $smarty->display('front/templates/materials/materials.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
         
@@ -31,7 +31,7 @@
             $smarty->display('front/templates/menu/header.tpl');
             $smarty->display('front/templates/menu/navbar.tpl');
             $smarty->assign('materials', $materials);
-            $smarty->display('front/templates/secretary/materialsSecretary.tpl');
+            $smarty->display('front/templates/materials/materialsSecretary.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
     }
