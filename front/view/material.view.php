@@ -35,22 +35,15 @@
             $smarty->display('front/templates/menu/footer.tpl');
         }
 
-        /* Llama a la vista que muestra el formulario de agregar material para la secretaria */
-        function showInsertMaterial(){
+        /* Llama a la vista que muestra el formulario de material */
+        function showMaterialForm($material = null){
             $smarty = new Smarty ();
             $smarty->display('front/templates/menu/header.tpl');
             $smarty->display('front/templates/menu/navbar.tpl');
-            $smarty->display('front/templates/materials/insertMaterial.tpl');
-            $smarty->display('front/templates/menu/footer.tpl');
-        }
-
-        /* Llama a la vista que muestra el formulario de editar material para la secretaria */
-        function showUpdateMaterial($material){
-            $smarty = new Smarty ();
-            $smarty->display('front/templates/menu/header.tpl');
-            $smarty->display('front/templates/menu/navbar.tpl');
-            $smarty->assign('material', $material);
-            $smarty->display('front/templates/materials/updateMaterial.tpl');
+            if($material !== null){
+                $smarty->assign('material', $material);
+            }
+            $smarty->display('front/templates/materials/materialForm.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
     }

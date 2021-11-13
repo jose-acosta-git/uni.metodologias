@@ -35,6 +35,6 @@
 <div class="form-group">
     <div class="custom-file">
         <input type="file" name="imageUpload" class="custom-file-input" id="imageToUpload">
-        <label class="custom-file-label" for="imageToUpload">Choose file</label>
+        <label class="custom-file-label" for="imageToUpload">Elegir imagen</label>
     </div>
 </div>

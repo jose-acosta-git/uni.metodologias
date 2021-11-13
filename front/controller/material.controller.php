@@ -28,15 +28,15 @@
             $this->view->showMaterialsSecretary($allMaterials);
         }
 
-        /**Muestra pagina de agregar material */
-        function showInsertMaterial(){
-            $this->view->showInsertMaterial();
-        }
-
-        /**Muestra pagina de materiales que se aceptan */
-        function showUpdateMaterial($id){
-            $material = $this->model->getById($id);
-            $this->view->showUpdateMaterial($material);
+        /**Muestra formulario de material */
+        function showMaterialForm($id = null){
+            if($id !== null){
+                $material = $this->model->getById($id);
+                $this->view->showMaterialForm($material);
+            }
+            else{
+                $this->view->showMaterialForm();
+            }
         }
 
         //inserta un material que llega por metodo POST a la base de datos

@@ -1,4 +1,5 @@
 <div class="container my-5">
+    <a href="formulario-insertar-material" class="btn btn-primary text-center custom-button mb-5 mx-auto">Agregar nuevo</a>
     <div class="secretary-materials-table">
         <div class="row d-flex">
             <div class="col-3 col-md-2">Título</div>
@@ -25,7 +26,7 @@
                         {/if}
                     </div>
                     <div class="col-md-2">
-                        <a href="editar-material-formulario/{$material->id_material}">
+                        <a href="formulario-editar-material/{$material->id_material}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
                         <a href="eliminar-material/{$material->id_material}">

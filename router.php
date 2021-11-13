@@ -35,18 +35,18 @@ switch ($params[0]) {
         $controller = new SolicitudController();
         $controller->listRequests();
         break;
-    case 'insertar-material-formulario':
+    case 'formulario-insertar-material':
         $controller = new MaterialController();
-        $controller->showInsertMaterial(); //TODO
+        $controller->showMaterialForm();
         break;
     case 'insertar-material':
         $controller = new MaterialController();
         $controller->insertMaterial();
         break;
-    case 'editar-material-formulario':
+    case 'formulario-editar-material':
         $controller = new MaterialController();
         $id = $params[1];
-        $controller->showUpdateMaterial($id); //TODO
+        $controller->showMaterialForm($id);
         break;
     case 'editar-material':
         $controller = new MaterialController();
