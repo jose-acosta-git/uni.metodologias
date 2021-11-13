@@ -164,4 +164,6 @@ class SolicitudController
     function listRequests() {
         $this->requestView->showRequests();
     }
+
+
 }

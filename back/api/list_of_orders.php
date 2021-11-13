@@ -30,4 +30,22 @@
                 $this->view->response("No se encontraron pedidos de retiro", 500);
             }   
         }
+
+
+
+        public function getFilterOrders($params = null){
+            $date1 = $params[':date1'];
+            $date2 = $params[':date2'];
+            
+
+            $orders = $this->model-> getFilterOrders($date1, $date2);
+            if ($orders){
+                $this->view->response($orders, 200);
+            } else {
+                $this->view->response("No se encontraron pedidos de retiro", 500);
+            }   
+       }
+
+                /* Obtiene todos los materiales */
+
     }
