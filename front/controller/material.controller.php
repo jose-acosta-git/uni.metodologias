@@ -15,10 +15,15 @@
         function showHome(){
             $this->view->showHome();
         }
-        /**Muestra pagina de materiales que se aceptan */
 
-        function showMaterial(){
+        /**Muestra pagina de materiales que se aceptan */
+        function showMaterials(){
             $this->view->showMaterials();
+        }
+
+        /**Muestra pagina de materiales de la secretaria */
+        function showMaterialsSecretary(){
+            $this->view->showMaterialsSecretary();
         }
 
         //inserta un material que llega por metodo POST a la base de datos
@@ -95,8 +100,4 @@
             $this->model->deleteMaterial($id);
             header("Location: " . BASE_URL . '');
         }
-
-
-       
-
     }

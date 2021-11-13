@@ -21,8 +21,12 @@ switch ($params[0]) {
         break;
     case 'materiales-aceptados':
         $controller = new MaterialController();
-        $controller->showMaterial();
+        $controller->showMaterials();
         break;
+    case 'materiales-aceptados-secretaria':
+        $controller = new MaterialController();
+        $controller->showMaterialsSecretary();
+        break;    
     case 'solicitud-ciudadano':
         $controller = new SolicitudController();
         $controller->addData();

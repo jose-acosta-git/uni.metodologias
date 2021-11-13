@@ -7,30 +7,37 @@ class MaterialsModel{
     //Materiales hardcodeados
     private $materials = array(
         array(
+            "id" => 1,
             "name" => "Papel",
             "info" => "El papel a reciclar debe estar siempre limpio y seco. Además no se acepta papel encerado o parafinado, etiquetas adhesivas, papel higiénico-sanitario, papel alimentación, papel manchado de grasa, papel térmico de fax, papel fotográfico, papeles engomados, papeles de regalo o papeles pegados.",
             "image" => "./front/images/paper.jpeg"
         ), array(
+            "id" => 2,
             "name" => "Carton",
             "info" => "El cartón debe estar limpio y si es una caja también debe estar desarmada.",
             "image" => "./front/images/cardboard.jpeg"
         ), array(
+            "id" => 3,
             "name" => "Envases plasticos",
             "info" => "Se acepta cualquier envase que tenga un Código de Identificación Plástico o RIC (Resin Identification Code), a excepción de  los de yogur o queso blanco, los plásticos mezclados con otros materiales o los degradados por el sol.",
             "image" => "./front/images/plasticBottles.jpeg"
         ), array(
+            "id" => 4,
             "name" => "Latas de conserva",
             "info" => "No deben estar oxidadas.",
             "image" => "./front/images/cans.jpeg"
         ), array(
+            "id" => 5,
             "name" => "Tetrabrik",
             "info" => "Solo se aceptarán limpios, secos y aplastados.",
             "image" => "./front/images/boxTetrabrik.jpeg"
         ), array(
+            "id" => 6,
             "name" => "Envases de aluminio",
             "info" => "Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.",
             "image" => "./front/images/aluminiumContainers.jpeg"
         ), array(
+            "id" => 7,
             "name" => "Botellas de vidrio",
             "info" => "Se aceptarán solo si estan limpias y secas.",
             "image" => "./front/images/glassBottle.jpeg"

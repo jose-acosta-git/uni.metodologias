@@ -24,5 +24,12 @@
             $smarty->display('front/templates/menu/footer.tpl');
         }
         
-          
+        /* Llama a la vista que muestra los materiales para la secretaria */
+        function showMaterialsSecretary(){
+            $smarty = new Smarty ();
+            $smarty->display('front/templates/menu/header.tpl');
+            $smarty->display('front/templates/menu/navbar.tpl');
+            $smarty->display('front/templates/secretary/materialsSecretary.tpl');
+            $smarty->display('front/templates/menu/footer.tpl');
+        }
     }
