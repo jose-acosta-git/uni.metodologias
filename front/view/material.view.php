@@ -23,6 +23,21 @@
             $smarty->display('front/templates/materials.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
+        /** Llama a la vista de registro de material que se trae a la planta */
+        function registerMaterials($material=null, $boxers=null){
+            $smarty = new Smarty ();
+            $smarty->display('front/templates/menu/header.tpl');
+            $smarty->display('front/templates/menu/navbar.tpl');
+            $smarty->assign('material', $material);
+            $smarty->assign('boxer',$boxers);
+            $smarty->display('front/templates/secretary/registerMaterials.tpl');
+            $smarty->display('front/templates/menu/footer.tpl');
+        }   
+
+
+
+
+
+
         
-          
     }

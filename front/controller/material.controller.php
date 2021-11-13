@@ -1,16 +1,19 @@
 <?php
 
     include_once 'front/view/material.view.php';
-    include_once 'back/models/materials.model.php';
+    include_once 'back/models/materials.model.php'; 
+    include_once 'back/models/boxers.model.php';
 
     class MaterialController{
 
         private $view;
         private $model;
+        private $modelBox;
 
         function __construct(){
             $this->view = new MaterialView();
             $this->model = new MaterialsModel();
+            $this->modelBox= new BoxersModel();
         }
         function showHome(){
             $this->view->showHome();
@@ -97,6 +100,15 @@
         }
 
 
-       
+        /**Muestra la pagina para que se registre el material que traen a la planta */
+        function registerMaterial(){
+            $materials=$this->model->getAll();
+            $boxers=$this->modelBox->getAllBoxers();
+            $this->view->registerMaterials($materials,$boxers);
+            
+        }
+        
+        
+
 
     }
