@@ -30,4 +30,7 @@
                 $this->view->response("No se encontraron pedidos de retiro", 500);
             }   
         }
+
+                /* Obtiene todos los materiales */
+
     }

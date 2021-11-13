@@ -36,4 +36,11 @@ class SolicitudModel
         $query->execute([$id_ciudadano, $date, $id_franja, $id_volumen, $image]);
         return $this->database->lastInsertId();
     }
+
+    function getFilterOrders($fechaDesde, $fechaHasta)
+    {
+        $query = $this->database->prepare('SELECT * FROM `pedido_cartonero` WHERE fecha_pedido BETWEEN ? AND ?');
+        $query->execute([$fechaDesde, $fechaHasta]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 }

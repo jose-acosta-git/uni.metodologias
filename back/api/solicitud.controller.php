@@ -164,4 +164,11 @@ class SolicitudController
     function listRequests() {
         $this->requestView->showRequests();
     }
+
+    public function getFilterOrders($params = null){
+        $date1 = $_POST['fecha-desde'];
+        $date2 = $_POST['fecha-hasta'];
+        $orders = $this->solicitudModel-> getFilterOrders($date1, $date2);
+        var_dump($orders);
+    }
 }
