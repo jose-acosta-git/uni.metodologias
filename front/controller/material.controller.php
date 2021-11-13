@@ -28,6 +28,17 @@
             $this->view->showMaterialsSecretary($allMaterials);
         }
 
+        /**Muestra pagina de agregar material */
+        function showInsertMaterial(){
+            $this->view->showInsertMaterial();
+        }
+
+        /**Muestra pagina de materiales que se aceptan */
+        function showUpdateMaterial($id){
+            $material = $this->model->getById($id);
+            $this->view->showUpdateMaterial($material);
+        }
+
         //inserta un material que llega por metodo POST a la base de datos
         function insertMaterial() {
             $name = $_POST['name'];
@@ -61,7 +72,7 @@
 
         //Modifica un material de la base de datos, dados los cambios que llegan por metodo POST
         //Supone que se envian por POST todos los datos, no solo los modificados
-        function editMaterial($id) {
+        function updateMaterial($id) {
 
             //checkea que existe el material que se quiere editar
             $material = $this->model->getById($id);

@@ -25,7 +25,7 @@
                         {/if}
                     </div>
                     <div class="col-md-2">
-                        <a href="formulario-material-aceptado/{$material->id_material}">
+                        <a href="editar-material-formulario/{$material->id_material}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
                         <a href="eliminar-material/{$material->id_material}">

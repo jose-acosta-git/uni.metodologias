@@ -34,4 +34,23 @@
             $smarty->display('front/templates/materials/materialsSecretary.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }
+
+        /* Llama a la vista que muestra el formulario de agregar material para la secretaria */
+        function showInsertMaterial(){
+            $smarty = new Smarty ();
+            $smarty->display('front/templates/menu/header.tpl');
+            $smarty->display('front/templates/menu/navbar.tpl');
+            $smarty->display('front/templates/materials/insertMaterial.tpl');
+            $smarty->display('front/templates/menu/footer.tpl');
+        }
+
+        /* Llama a la vista que muestra el formulario de editar material para la secretaria */
+        function showUpdateMaterial($material){
+            $smarty = new Smarty ();
+            $smarty->display('front/templates/menu/header.tpl');
+            $smarty->display('front/templates/menu/navbar.tpl');
+            $smarty->assign('material', $material);
+            $smarty->display('front/templates/materials/updateMaterial.tpl');
+            $smarty->display('front/templates/menu/footer.tpl');
+        }
     }

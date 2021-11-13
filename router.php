@@ -26,7 +26,7 @@ switch ($params[0]) {
     case 'materiales-aceptados-secretaria':
         $controller = new MaterialController();
         $controller->showMaterialsSecretary();
-        break;    
+        break;
     case 'solicitud-ciudadano':
         $controller = new SolicitudController();
         $controller->addData();
@@ -35,13 +35,22 @@ switch ($params[0]) {
         $controller = new SolicitudController();
         $controller->listRequests();
         break;
+    case 'insertar-material-formulario':
+        $controller = new MaterialController();
+        $controller->showInsertMaterial(); //TODO
+        break;
     case 'insertar-material':
         $controller = new MaterialController();
         $controller->insertMaterial();
         break;
+    case 'editar-material-formulario':
+        $controller = new MaterialController();
+        $id = $params[1];
+        $controller->showUpdateMaterial($id); //TODO
+        break;
     case 'editar-material':
         $controller = new MaterialController();
-        $controller->editMaterial($params[1]);
+        $controller->updateMaterial($params[1]);
         break;
     case 'eliminar-material':
         $controller = new MaterialController();
