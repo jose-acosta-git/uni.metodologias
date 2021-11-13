@@ -37,9 +37,9 @@ class MaterialsModel{
     }
 
     //Modifica los datos de un material dado su id
-    function editMaterial($id, $name, $condition, $image) {
+    function updateMaterial($name, $condition, $image, $id) {
         $query = $this->database->prepare('UPDATE material_aceptado SET nombre_material = ?, condicion_entrega = ?, imagen_material = ? WHERE id_material = ?');
-        $query->execute($name, $condition, $image, $id);
+        $query->execute([$name, $condition, $image, $id]);
         return $this->database->lastInsertId();
     }
 

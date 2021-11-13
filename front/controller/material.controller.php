@@ -42,7 +42,7 @@
             }
         }
 
-        //inserta un material que llega por metodo POST a la base de datos
+        //Inserta un material que llega por metodo POST a la base de datos
         function insertMaterial() {
             $name = isset($_POST['name']) ? $_POST['name'] : null;
             $condition = isset($_POST['condition']) ? $_POST['condition'] : null;
@@ -52,6 +52,7 @@
                 //TODO imprimir error en formulario de alta de material
                 die();
             }
+
             $resultImageUpload = $this->fileHelper->uploadImage('image');
             if(!$resultImageUpload){
                 //TODO imprimir error en formulario de alta de material
@@ -64,31 +65,34 @@
         }
 
         //Modifica un material de la base de datos, dados los cambios que llegan por metodo POST
-        //Supone que se envian por POST todos los datos, no solo los modificados
         function updateMaterial($id) {
-
-            //checkea que existe el material que se quiere editar
             $material = $this->model->getById($id);
             if (!$material) {
                 //TODO informar que el material que se quiere editar no existe
                 die();
             }
 
-            $name = $_POST['name'];
-            $condition = $_POST['condition'];
-            $image = $_POST['image'];
+            $name = isset($_POST['name']) ? $_POST['name'] : null;
+            $condition = isset($_POST['condition']) ? $_POST['condition'] : null;
             
-            //verifico que los campos no estén vacíos
-            if (empty($name) || empty($condition) || empty($image)) {
+            if (empty($name) || empty($condition)) {
                 //TODO imprimir error en formulario de edicion de material: no puede haber un campo vacio
                 die();
             }
 
-            $resultImageUpload = $this->fileHelper->uploadImage('image');
-            if(!$resultImageUpload){
-                //TODO imprimir error en formulario de alta de material
-                die();
+            if ($_FILES['image']['size'] == 0){
+                $resultImageUpload = $material->imagen_material;
             }
+            else{
+                $resultImageUpload = $this->fileHelper->uploadImage('image');
+                if(empty($resultImageUpload)){
+                    //TODO imprimir error en formulario de alta de material
+                    die();
+                }
+            }
+            
+            $this->model->updateMaterial($name, $condition, $resultImageUpload, $id);
+
             header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
 

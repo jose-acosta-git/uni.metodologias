@@ -45,8 +45,7 @@ switch ($params[0]) {
         break;
     case 'formulario-editar-material':
         $controller = new MaterialController();
-        $id = $params[1];
-        $controller->showMaterialForm($id);
+        $controller->showMaterialForm($params[1]);
         break;
     case 'editar-material':
         $controller = new MaterialController();
