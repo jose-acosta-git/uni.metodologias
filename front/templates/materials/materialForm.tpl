@@ -1,8 +1,8 @@
 <div class="container my-5 mx-auto" style="max-width:600px;">
     {if isset($material)}
-    <form action="editar-material" method="post">
+    <form action="editar-material" method="post" enctype="multipart/form-data">
     {else}
-    <form action="insertar-material" method="post">
+    <form action="insertar-material" method="post" enctype="multipart/form-data">
     {/if}
         {if isset($material)}
         <h1 class="text-center">Editar material</h1>

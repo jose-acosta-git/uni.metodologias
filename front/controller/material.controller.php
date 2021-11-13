@@ -2,15 +2,18 @@
 
     include_once 'front/view/material.view.php';
     include_once 'back/models/materials.model.php';
+    include_once 'helpers/file.helper.php';
 
     class MaterialController{
 
         private $view;
         private $model;
+        private $fileHelper;
 
         function __construct(){
             $this->view = new MaterialView();
             $this->model = new MaterialsModel();
+            $this->fileHelper = new FileHelper();
         }
         function showHome(){
             $this->view->showHome();
@@ -41,33 +44,23 @@
 
         //inserta un material que llega por metodo POST a la base de datos
         function insertMaterial() {
-            $name = $_POST['name'];
-            $condition = $_POST['condition'];
-            $image = $_POST['image'];
+            $name = isset($_POST['name']) ? $_POST['name'] : null;
+            $condition = isset($_POST['condition']) ? $_POST['condition'] : null;
+            $image = isset($_FILES['image']) ? $_FILES['image'] : null;
 
-            //verifico que los campos no estén vacíos
             if (empty($name) || empty($condition) || empty($image)) {
                 //TODO imprimir error en formulario de alta de material
                 die();
             }
-
-            if ($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png" )
-            {
-                $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
-                $this->model->insert($name, $condition, $realName);
-            } else {
-                //TODO imprimir error en formulario de alta de material: imagen invalida
+            $resultImageUpload = $this->fileHelper->uploadImage('image');
+            if(!$resultImageUpload){
+                //TODO imprimir error en formulario de alta de material
                 die();
             }
-
-            header("Location: " . BASE_URL . '');
-        }
-        
-        // Construye un nombre unico de archivo y ademas lo mueve a mi carpeta de imagenes
-        function uniqueSaveName($realName, $tempName) {
-            $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
-            move_uploaded_file($tempName, $filePath);
-            return $filePath;
+            else{
+                $this->model->insert($name, $condition, $resultImageUpload);
+            }
+            header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
 
         //Modifica un material de la base de datos, dados los cambios que llegan por metodo POST
@@ -91,15 +84,12 @@
                 die();
             }
 
-            if ($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png" )
-            {
-                $realName = $this->uniqueSaveName($_FILES['image']['name'], $_FILES['image']['tmp_name']);
-                $this->model->editMaterial($realName, $name, $condition, $image);
-            } else {
-                //TODO imprimir error formato de imagen inválido
+            $resultImageUpload = $this->fileHelper->uploadImage('image');
+            if(!$resultImageUpload){
+                //TODO imprimir error en formulario de alta de material
                 die();
             }
-            header("Location: " . BASE_URL . '');
+            header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
 
         //Elimina un material de la base de datos
@@ -111,6 +101,6 @@
                 die();
             }
             $this->model->deleteMaterial($id);
-            header("Location: " . BASE_URL . '');
+            header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
     }
