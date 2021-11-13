@@ -23,7 +23,6 @@
         /* Obtiene todos los materiales */
         public function getAll($params = null){
             $allMaterials = $this->model->getAll();
-            $this->getData($allMaterials);
             if ($allMaterials){
                 $this->view->response($allMaterials, 200);
             } else {

@@ -18,12 +18,14 @@
 
         /**Muestra pagina de materiales que se aceptan */
         function showMaterials(){
-            $this->view->showMaterials();
+            $allMaterials = $this->model->getAll();
+            $this->view->showMaterials($allMaterials);
         }
 
         /**Muestra pagina de materiales de la secretaria */
         function showMaterialsSecretary(){
-            $this->view->showMaterialsSecretary();
+            $allMaterials = $this->model->getAll();
+            $this->view->showMaterialsSecretary($allMaterials);
         }
 
         //inserta un material que llega por metodo POST a la base de datos
@@ -93,7 +95,7 @@
         function deleteMaterial($id) {
             //checkea que existe el material que se quiere eliminar
             $material = $this->model->getById($id);
-            if (!$material) {
+            if ($material == null) {
                 //TODO informar que el material que se quiere eliminar no existe
                 die();
             }
