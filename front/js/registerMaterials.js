@@ -17,8 +17,18 @@ const listBoxers = new Vue ({
         boxersList:[],
     },
     methods:{
-
+        selectBoxer: async function(e) {
+            let id = e.target.id;
+            let title=document.querySelector(".nombre_cartonero");
+            console.log(id);
+            title.innerHTML=e.target.name;
+            
+            
+            
+        }
     }
+
+    
 });
 
 document.addEventListener("DOMContentLoaded", initPage());
@@ -27,6 +37,7 @@ function initPage() {
     /**  Muestra todos los materiales */
     showMaterials();
     showBoxers();
+    console.log(listBoxers.boxersList)
     /** Obtiene todos los materiales y los imprime */
     async function showMaterials() {
         let r = await fetch(`api/material` ,{
@@ -34,7 +45,7 @@ function initPage() {
         });
         let materials = await r.json();
         listMaterialsRegister.list = materials; 
-        
+        console.log(listMaterialsRegister.list);
     };
     
     /** Obtiene todos los materiales y los imprime */
@@ -43,7 +54,11 @@ function initPage() {
             "method": "GET"
         });
         let boxers = await r.json();
-        listBoxers.boxersList= boxers;         
+        listBoxers.boxersList= boxers; 
+        console.log(listBoxers.boxersList);        
     };   
+
+
+
         
 }

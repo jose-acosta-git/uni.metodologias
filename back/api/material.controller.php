@@ -27,25 +27,8 @@
             if ($allMaterials){
                 $this->view->response($allMaterials, 200);
             } else {
-                $this->view->response("No se encontraron materiales", 500);
+                $this->view->response("No se encontraron Materiales", 500);
             }   
         }
-        function showOneMaterial($name){
-            $oneMaterial = $this->model->get($name); 
-            $this->view->response($oneMaterial, 200);
-            
-        }
-
-        public function add() {
-            /* $body = $this->getData();
-            $name = $body->name;
-            $condition = $body->condition;            
-            $id = $this->model->insert($name, $condition);
-            if ($id){
-                $this->view->response($id, 200);
-            } else {
-                $this->view->response("No se pudo insertar", 404);
-            }    */
-        }
-
+        
     }

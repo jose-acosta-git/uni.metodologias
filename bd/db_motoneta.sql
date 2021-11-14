@@ -98,6 +98,24 @@ CREATE TABLE material_aceptado (
     CONSTRAINT pk_material_aceptado PRIMARY KEY (id_material)
 );
 
+CREATE TABLE `cartonero` (
+    `cartonero_dni` int NOT NULL,
+    `nombre` varchar(75) NOT NULL,
+    `apellido` varchar(75) NOT NULL,
+    `direccion` varchar(100) NOT NULL,
+    `fecha_nacimiento` date NOT NULL,
+    `id_vehiculo` int NOT NULL,
+    CONSTRAINT `cartonero_pk` PRIMARY KEY (`cartonero_dni`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Table: vehiculo
+CREATE TABLE `vehiculo` (
+    `id_vehiculo` int NOT NULL,
+    `tipo` varchar(50) NOT NULL,
+    `id_volumen` int NOT NULL,
+    CONSTRAINT `vehiculo_pk` PRIMARY KEY (`id_vehiculo`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Indices de la tabla `franja_horaria`
@@ -129,8 +147,21 @@ ALTER TABLE `volumen`
 ALTER TABLE `pedido_cartonero`
     ADD CONSTRAINT `fk_pedido_cartonero_ciudadano` FOREIGN KEY(`id_ciudadano`) REFERENCES `ciudadano`(`id_ciudadano`),
     ADD CONSTRAINT `fk_pedido_cartonero_franja_horaria` FOREIGN KEY(`id_franja_horaria`) REFERENCES `franja_horaria`(`id_franja_horaria`),
-    ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`);
-COMMIT;
+    ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`)
+    COMMIT;
+
+-- foreign keys
+-- Reference: cartonero_vehiculo (table: cartonero)
+ALTER TABLE `cartonero`
+ ADD CONSTRAINT `fk_cartonero_vehiculo` FOREIGN KEY (`id_vehiculo`)
+    REFERENCES `vehiculo` (`id_vehiculo`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE;
+
+    ALTER TABLE `vehiculo`
+ ADD CONSTRAINT `fk_vehiculo_volumen` FOREIGN KEY (`id_volumen`)
+    REFERENCES `volumen` (`id_volumen`)
+    COMMIT;
 
 /* CORRER PRIMERO LO DE ARRIBA, LUEGO LO DE ABAJO */
 

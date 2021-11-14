@@ -6,7 +6,7 @@
         Material
       </button>
       <div  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a v-for="material in list" class="dropdown-item">{{material.name}} </a>
+        <a v-for="material in list" class="dropdown-item">{{material.nombre_material}} </a>
        
       </div>
     </div>
