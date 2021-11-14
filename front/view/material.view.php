@@ -47,13 +47,12 @@
         }
 
         /* Llama a la vista que muestra el formulario de material */
-        function showMaterialForm($material = null){
+        function showMaterialForm($material = null, $error = null){
             $smarty = new Smarty ();
             $smarty->display('front/templates/menu/header.tpl');
             $smarty->display('front/templates/menu/navbar.tpl');
-            if($material !== null){
-                $smarty->assign('material', $material);
-            }
+            $smarty->assign('material', $material);
+            $smarty->assign('error', $error);
             $smarty->display('front/templates/materials/materialForm.tpl');
             $smarty->display('front/templates/menu/footer.tpl');
         }

@@ -1,5 +1,8 @@
 <div class="container my-5">
-    <a href="formulario-insertar-material" class="btn btn-primary text-center custom-button mb-5 mx-auto">Agregar nuevo</a>
+    <h1 class="my-5 text-center">Modificar materiales aceptados</h3>
+    <div class="d-flex justify-content-center my-5">
+        <a href="formulario-insertar-material" class="btn btn-primary text-center custom-button">Agregar nuevo</a>
+    </div>
     <div class="secretary-materials-table">
         <div class="row d-flex">
             <div class="col-3 col-md-2">Título</div>

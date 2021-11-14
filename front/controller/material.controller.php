@@ -52,14 +52,14 @@
             $image = isset($_FILES['image']) ? $_FILES['image'] : null;
 
             if (empty($name) || empty($condition) || empty($image)) {
-                //TODO imprimir error en formulario de alta de material
-                die();
+                $this->view->showMaterialForm(null, "No puede haber un campo vacío");
+                return;
             }
 
             $resultImageUpload = $this->fileHelper->uploadImage('image');
             if(!$resultImageUpload){
-                //TODO imprimir error en formulario de alta de material
-                die();
+                $this->view->showMaterialForm(null, "Hubo un error al subir la imagen");
+                return;
             }
             else{
                 $this->model->insert($name, $condition, $resultImageUpload);
@@ -71,16 +71,16 @@
         function updateMaterial($id) {
             $material = $this->model->getById($id);
             if (!$material) {
-                //TODO informar que el material que se quiere editar no existe
-                die();
+                $this->view->showMaterialForm($material, "El material que se quiere editar no existe");
+                return;
             }
 
             $name = isset($_POST['name']) ? $_POST['name'] : null;
             $condition = isset($_POST['condition']) ? $_POST['condition'] : null;
             
             if (empty($name) || empty($condition)) {
-                //TODO imprimir error en formulario de edicion de material: no puede haber un campo vacio
-                die();
+                $this->view->showMaterialForm($material, "No puede haber un campo vacío");
+                return;
             }
 
             if ($_FILES['image']['size'] == 0){
@@ -89,8 +89,8 @@
             else{
                 $resultImageUpload = $this->fileHelper->uploadImage('image');
                 if(empty($resultImageUpload)){
-                    //TODO imprimir error en formulario de alta de material
-                    die();
+                    $this->view->showMaterialForm($material, "Hubo un error al subir la imagen");
+                    return;
                 }
             }
             
@@ -101,13 +101,14 @@
 
         //Elimina un material de la base de datos
         function deleteMaterial($id) {
-            //checkea que existe el material que se quiere eliminar
             $material = $this->model->getById($id);
             if ($material == null) {
-                //TODO informar que el material que se quiere eliminar no existe
-                die();
+                $this->view->showMaterialForm($material, "El material que se quiere editar no existe");
+                return;
             }
+
             $this->model->deleteMaterial($id);
+
             header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
 
