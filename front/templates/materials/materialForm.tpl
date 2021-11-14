@@ -9,6 +9,11 @@
         {else}
         <h1 class="text-center">Añadir material</h1>
         {/if}
+        {if isset($error)}
+        <div class="alert alert-danger mt-2">
+            {$error}
+        </div>
+        {/if}
         <div class="form-group">
             <label for="name">Nombre</label>
             {if isset($material)}
