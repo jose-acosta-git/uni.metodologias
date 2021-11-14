@@ -1,18 +1,21 @@
 <?php
 
     include_once 'front/view/material.view.php';
-    include_once 'back/models/materials.model.php';
+    include_once 'back/models/materials.model.php'; 
+    include_once 'back/models/boxers.model.php';
     include_once 'helpers/file.helper.php';
 
     class MaterialController{
 
         private $view;
         private $model;
+        private $modelBox;
         private $fileHelper;
 
         function __construct(){
             $this->view = new MaterialView();
             $this->model = new MaterialsModel();
+            $this->modelBox= new BoxersModel();
             $this->fileHelper = new FileHelper();
         }
         function showHome(){
@@ -107,4 +110,17 @@
             $this->model->deleteMaterial($id);
             header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
+
+
+        /**Muestra la pagina para que se registre el material que traen a la planta */
+        function registerMaterial(){
+            $materials=$this->model->getAll();
+            $boxers=$this->modelBox->getAllBoxers();
+            $this->view->materialsBoxers($materials,$boxers);
+            
+        }
+        
+        
+
+
     }

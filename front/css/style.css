@@ -273,3 +273,30 @@ nav {
     text-decoration: none;
     color: #3a9188;
 }
+
+
+
+/*Estilos de ingreso material de cartoneros */
+.nombre_cartonero{
+    display: block;
+    padding-left: 40%;
+    padding-top: 1%;
+    color: #2a746c;
+}
+.list-group-item.active {
+    background-color: #3a9188;
+}
+.dropdown-toggle{
+    background-color: #3a9188;
+}
+.btn-secondary:hover{
+    background-color: #2a746c;
+}
+.show>.btn-secondary.dropdown-toggle{
+    background-color: #2a746c;
+
+}
+.btn-secondary.focus, .btn-secondary:focus{
+    background-color: #2a746c;
+
+}
