@@ -198,12 +198,26 @@ nav {
     list-style: none;
 }
 
-.materials-title {
-    margin-bottom: 25px;
-    ;
+.material-collapse{
+    margin-top: 25px;
+    border-bottom: 2px solid #3a9188;
 }
 
+.collapse-title{
+    font-size: 25px;
+    padding-bottom: 25px;
+}
 
+.collapse-title img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.collapse-body{
+    padding: 20px 0;
+    font-size: 18px;
+    background-color: #b8e1dd;
+}
 
 .footer-copyright {
     color: rgba(255, 255, 255, 0.9);
