@@ -62,7 +62,7 @@ class BoxersModel{
     );
    
     
-    /* Obtiene todos los Cartoneros */
+    /* Obtiene todos los Cartoneros hardcodeados */
     function getAllBoxers()
     {
         
