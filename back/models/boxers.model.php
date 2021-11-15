@@ -44,12 +44,20 @@ class BoxersModel{
             "id_vehiculo" => "2"
         ), 
         array(
-            "dni" => "3653269",
+            "dni" => "36532698",
             "nombre" => "Jose",
             "apellido" => "Acosta",
             "direccion" => "Saavedra 76",
             "fecha_nacimiento" => "18/10/1991",
             "id_vehiculo" => "3"
+        ), 
+        array(
+            "dni" => "11111111",
+            "nombre" => "Ciudadano",
+            "apellido" => "Buena Onda",
+            "direccion" => "Pinto 399",
+            "fecha_nacimiento" => "9/10/1974",
+            "id_vehiculo" => "9"
         )
     );
    

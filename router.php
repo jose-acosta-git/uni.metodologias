@@ -3,6 +3,7 @@
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 include_once 'front/controller/material.controller.php';
+include_once 'front/controller/boxer.controller.php';
 include_once 'back/api/solicitud.controller.php';
 
 //phpinfo();
@@ -39,10 +40,6 @@ switch ($params[0]) {
         $controller = new MaterialController();
         $controller->showMaterialForm();
         break;
-     case 'pedidos-filtrados':
-        $controller = new SolicitudController();
-        $controller->getFilterOrders();
-        break;       
     case 'insertar-material':
         $controller = new MaterialController();
         $controller->insertMaterial();
@@ -62,12 +59,14 @@ switch ($params[0]) {
     case 'registrar-material':
         $controller = new MaterialController();
         $controller->showMaterialsSecretary();
-        
         break;
     case 'material-cartoneros':
         $controller = new MaterialController();
         $controller->registerMaterial();
-        
+        break;
+    case 'listado-cartoneros':
+        $controller = new BoxerController();
+        $controller->showBoxers();
         break;
     default:
         header("HTTP/1.0 404 Not Found");
