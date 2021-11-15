@@ -13,6 +13,7 @@
             $this->model= new BoxersModel();
         }
 
+        /** Se muestra el listado de cartoneros */
         function showBoxers(){
             $boxers = $this->model->getAllBoxers();
             $this->view->showBoxers($boxers);
