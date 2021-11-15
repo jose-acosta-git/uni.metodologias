@@ -147,8 +147,8 @@ ALTER TABLE `volumen`
 ALTER TABLE `pedido_cartonero`
     ADD CONSTRAINT `fk_pedido_cartonero_ciudadano` FOREIGN KEY(`id_ciudadano`) REFERENCES `ciudadano`(`id_ciudadano`),
     ADD CONSTRAINT `fk_pedido_cartonero_franja_horaria` FOREIGN KEY(`id_franja_horaria`) REFERENCES `franja_horaria`(`id_franja_horaria`),
-    ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`)
-    COMMIT;
+    ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`);
+
 
 -- foreign keys
 -- Reference: cartonero_vehiculo (table: cartonero)
@@ -160,8 +160,8 @@ ALTER TABLE `cartonero`
 
     ALTER TABLE `vehiculo`
  ADD CONSTRAINT `fk_vehiculo_volumen` FOREIGN KEY (`id_volumen`)
-    REFERENCES `volumen` (`id_volumen`)
-    COMMIT;
+    REFERENCES `volumen` (`id_volumen`);
+
 
 /* CORRER PRIMERO LO DE ARRIBA, LUEGO LO DE ABAJO */
 
