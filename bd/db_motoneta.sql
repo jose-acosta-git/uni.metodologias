@@ -116,6 +116,17 @@ CREATE TABLE `vehiculo` (
     CONSTRAINT `vehiculo_pk` PRIMARY KEY (`id_vehiculo`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE material_cartonero (
+    id_material int NOT NULL,
+    dni_cartonero int NOT NULL,
+    peso float NOT NULL,
+    CONSTRAINT pk_material_cartonero PRIMARY KEY (id_material, dni_cartonero)
+);
+
+-- foreign keys
+ALTER TABLE `material_cartonero`
+    ADD CONSTRAINT `fk_material_cartonero_material` FOREIGN KEY(`id_material`) REFERENCES `material_aceptado`(`id_material`),
+    ADD CONSTRAINT `fk_material_cartonero_cartonero` FOREIGN KEY(`dni_cartonero`) REFERENCES `cartonero`(`cartonero_dni`);
 
 --
 -- Indices de la tabla `franja_horaria`
