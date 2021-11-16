@@ -14,7 +14,7 @@
                         {if $material->imagen_material !== ''}
                             <img src="{$material->imagen_material}" alt="...">
                         {else if}
-                            <img src=./front/images/imageEmpty.jpeg alt="...">
+                            <img src=./back/images/imageEmpty.jpeg alt="...">
                         {/if}
                     </div>
                     <div class="col-6 col-sm-7 my-auto">

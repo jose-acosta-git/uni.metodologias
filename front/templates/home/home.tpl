@@ -51,18 +51,11 @@
                 </form>
             </fieldset>
         </div>
-
         <div class="col-lg-7 ml-2 mt-0">
-            <picture class="d-flex img-fluid">
-                {html_image file="/Proyectos/TPE-Motoneta/back/images/planta-tratamiento.png" alt="Centro de reciclado MOTONETA" width="100%" height="100%"}
+            <picture class="d-flex img-fluid mt-4">
+                {html_image file="back/images/planta-tratamiento.png" alt="Centro de reciclado MOTONETA" width="100%" height="100%"}
             </picture>
         </div>
-       {*  <div class="col-lg-7 col-xl-8">
-            <fieldset class="custom-fieldset fourth-color">
-                <legend class="custom-fieldset">Cartelera</legend>
-                <p>Sin implementar</p>
-            </fieldset>
-        </div> *}
     </div>
 </div>
 
