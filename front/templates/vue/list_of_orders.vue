@@ -7,6 +7,8 @@
                 <ul class="row list-group mt-5">
                     <li v-for="order in list" class="list-group-item d-flex justify-content-between">
                         <div class="font-italic">{{ order.apellido }} {{ order.nombre }}</div>
+                        <!-- <div class="font-italic">{{ order.franja_horaria }}</div>
+                        <div class="font-italic">{{ order.volumen }}</div> -->
                         <div class="font-italic">{{ order.direccion }}</div>
                         <div class="font-italic">{{ order.fecha_pedido }}</div>
                     </li>
