@@ -19,7 +19,7 @@ const listBoxers = new Vue({
     methods: {
         selectBoxer: async function(e) {
             let id = e.target.id;
-            let title = document.querySelector(".nombre_cartonero");
+            let title = document.querySelector("#boxerName");
             console.log(id);
             title.innerHTML = e.target.name;
 

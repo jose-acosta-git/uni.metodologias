@@ -4,7 +4,7 @@
       <div class="form-group">
         {include file='../vue/boxers.vue'}
       </div>
-      <div class="form-group mr-3">
+      <div class="form-group">
         {include file='../vue/registerMaterials.vue'} 
       </div>
       <div class="form-group">
@@ -12,27 +12,16 @@
           <span class="input-group-text mr-1" id="weight_label">Peso</span>
           <input type="number" aria-label="Weight" class="form-control" id="weight_input">
         </div>
-       <div class="form-group mt-3 justify-content-center">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Material</th>
-                <th scope="col">Kilos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-          </table>
-       </div>
 
       </div>
-       <div class="form-group mt-4">
-          <input class="btn" type="submit" value="Agregar" id="btn_add_box">
-        </div>
     </div>             
+      
+        <div class="input-group justify-content-center">
+          <button class="btn" type="submit" value="Agregar" id="btn_add_box">
+        </div> 
+        
+      <div class="form-group justify-content-center">  
+      {include file='../vue/boxerMaterials.vue'}
+      </div>
                   
   </section>
