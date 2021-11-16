@@ -198,22 +198,22 @@ nav {
     list-style: none;
 }
 
-.material-collapse{
+.material-collapse {
     margin-top: 25px;
     border-bottom: 2px solid #3a9188;
 }
 
-.collapse-title{
+.collapse-title {
     font-size: 25px;
     padding-bottom: 25px;
 }
 
-.collapse-title img{
+.collapse-title img {
     max-width: 100%;
     border-radius: 10px;
 }
 
-.collapse-body{
+.collapse-body {
     padding: 20px 0;
     font-size: 18px;
     background-color: #b8e1dd;
@@ -226,28 +226,29 @@ nav {
     font-size: .875rem;
     line-height: 1.8;
 }
-.card{
-    align-items: center;
 
+.card {
+    align-items: center;
 }
-.card-img{
+
+.card-img {
     display: flex;
     align-content: center;
     height: 100%;
     margin: 2%;
-    
 }
 
-.imge{
+.imge {
     align-self: center;
 }
 
-.card-title{
+.card-title {
     padding-top: 25px;
 }
+
 @media (max-width:600px) {
-    .material-info{
-        width:250px;
+    .material-info {
+        width: 250px;
     }
 }
 
@@ -260,12 +261,12 @@ nav {
     align-items: center;
 }
 
-    .secretary-materials-table > .row:first-child {
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        border-bottom: 2px black solid;
-        font-weight: bolder;
-    }
+.secretary-materials-table>.row:first-child {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px black solid;
+    font-weight: bolder;
+}
 
 .secretary-materials-table .row {
     border-bottom: 0.5px gray solid;
@@ -289,28 +290,70 @@ nav {
 }
 
 
-
 /*Estilos de ingreso material de cartoneros */
-.nombre_cartonero{
+
+.nombre_cartonero {
     display: block;
     padding-left: 40%;
     padding-top: 1%;
     color: #2a746c;
 }
-.list-group-item.active {
+
+.list-group-item {
+    background-color: #b8e1dd;
+}
+
+#btn_box {
     background-color: #3a9188;
 }
-.dropdown-toggle{
+
+.dropdown-toggle {
     background-color: #3a9188;
 }
-.btn-secondary:hover{
+
+.dropdown-menu {
+    background-color: #b8e1dd;
+}
+
+.btn-secondary:hover {
     background-color: #2a746c;
 }
-.show>.btn-secondary.dropdown-toggle{
-    background-color: #2a746c;
 
+.show>.btn-secondary.dropdown-toggle {
+    background-color: #2a746c;
 }
-.btn-secondary.focus, .btn-secondary:focus{
-    background-color: #2a746c;
 
+.btn-secondary.focus,
+.btn-secondary:focus {
+    background-color: #2a746c;
+}
+
+#inputGroup-sizing-sm {
+    background-color: #3a9188
+}
+
+#weight_label {
+    background-color: #3a9188;
+    color: white;
+    border: 1px solid transparent;
+}
+
+#weight_input {
+    width: 100px;
+    background-color: #b8e1dd;
+}
+
+thead {
+    background-color: #3a9188;
+    color: white;
+    font: 16px Roboto, sans-serif;
+}
+
+tbody {
+    background-color: #b8e1dd;
+}
+
+#btn_add_box {
+    background-color: #3a9188;
+    color: white;
 }
