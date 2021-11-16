@@ -58,7 +58,7 @@ function initPage() {
         console.log(listBoxers.boxersList);        
     };   
 
-
+ 
 
         
 }
