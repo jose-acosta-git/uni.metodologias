@@ -1,5 +1,5 @@
 <div class="m-4">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-lg-5 col-xl-4">
             <fieldset class="custom-fieldset fourth-color">
                 <legend class="custom-fieldset">Tengo elementos reciclables</legend>
@@ -51,6 +51,7 @@
                 </form>
             </fieldset>
         </div>
+<<<<<<< HEAD
         <div class="col-lg-7 col-xl-8">
             <img src={$foto} /> 
             {* <fieldset class="custom-fieldset fourth-color">
@@ -58,6 +59,20 @@
                 <p>Sin implementar</p>
             </fieldset> *}
         </div>
+=======
+
+        <div class="col-lg-7 ml-2 mt-0">
+            <picture class="d-flex img-fluid">
+                {html_image file="/Proyectos/TPE-Motoneta/back/images/planta-tratamiento.png" alt="Centro de reciclado MOTONETA" width="100%" height="100%"}
+            </picture>
+        </div>
+       {*  <div class="col-lg-7 col-xl-8">
+            <fieldset class="custom-fieldset fourth-color">
+                <legend class="custom-fieldset">Cartelera</legend>
+                <p>Sin implementar</p>
+            </fieldset>
+        </div> *}
+>>>>>>> 8d0cb09e04c7ceebdb51cd00e09448d7b44bcc97
     </div>
 </div>
 
