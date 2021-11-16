@@ -17,7 +17,7 @@
 
         function uploadImage($inputName){
             // Donde vamos a guardar la imagen
-            $targetDir = "back/images/";
+            $targetDir = "back/images/materials/";
             // Obtengo el nombre que tiene el archivo actual
             $targetFile = basename($_FILES[$inputName]["name"]);
             // Obtengo la extensión de la imagen que voy a subir

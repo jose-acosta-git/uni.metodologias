@@ -25,7 +25,7 @@
                         {if $material->imagen_material !== ''}
                             <img src="{$material->imagen_material}" class="card-img" alt="...">
                         {else if}
-                            <img src=./front/images/imageEmpty.jpeg class="card-img" alt="...">
+                            <img src=./back/images/imageEmpty.jpeg class="card-img" alt="...">
                         {/if}
                     </div>
                     <div class="col-md-2">
