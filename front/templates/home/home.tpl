@@ -52,10 +52,11 @@
             </fieldset>
         </div>
         <div class="col-lg-7 col-xl-8">
-            <fieldset class="custom-fieldset fourth-color">
+            <img src={$foto} /> 
+            {* <fieldset class="custom-fieldset fourth-color">
                 <legend class="custom-fieldset">Cartelera</legend>
                 <p>Sin implementar</p>
-            </fieldset>
+            </fieldset> *}
         </div>
     </div>
 </div>
