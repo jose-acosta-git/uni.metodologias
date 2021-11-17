@@ -1,23 +1,46 @@
 <?php
 
-    include_once 'front/view/material.view.php';
-    include_once 'back/models/materials.model.php'; 
-    include_once 'back/models/boxers.model.php';
-    include_once 'helpers/file.helper.php';
+    //Se inclute modelo de materiales
+    require_once('back/models/material.model.php');
+    require_once('api.view.php');
+    require_once('front/view/material.view.php');
+    require_once('back/models/boxer.model.php');
+    require_once('helpers/file.helper.php');
 
-    class MaterialController{
+    class MaterialController {
 
-        private $view;
         private $model;
+        private $apiView;
+        private $view;
         private $modelBox;
         private $fileHelper;
 
         function __construct(){
+            $this->model = new MaterialModel();
+            $this->apiView = new APIView();
             $this->view = new MaterialView();
-            $this->model = new MaterialsModel();
-            $this->modelBox= new BoxersModel();
+            $this->modelBox= new BoxerModel();
             $this->fileHelper = new FileHelper();
+            /**Obtengo lo que tengo por post, como texto */
+            $this->data = file_get_contents('php://input');
         }
+
+        private function getData($params = null){
+            return json_decode($this->data);
+        }
+
+        /* Obtiene todos los materiales */
+        public function getAll($params = null){
+            $allMaterials = $this->model->getAll();
+            $this->getData($allMaterials);
+            if ($allMaterials){
+                $this->apiView->response($allMaterials, 200);
+            } else {
+                $this->apiView->response("No se encontraron Materiales", 500);
+            }   
+        }
+        
+        /**Muestra la pagina home */
         function showHome(){
             $this->view->showHome();
         }
@@ -112,7 +135,6 @@
             header("Location: " . BASE_URL . 'materiales-aceptados-secretaria');
         }
 
-
         /**Muestra la pagina para que se registre el material que traen a la planta */
         function registerMaterial(){
             $materials=$this->model->getAll();
@@ -120,8 +142,5 @@
             $this->view->materialsBoxers($materials,$boxers);
             
         }
-        
-        
-
 
     }

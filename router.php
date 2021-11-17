@@ -2,9 +2,9 @@
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-include_once 'front/controller/material.controller.php';
-include_once 'front/controller/boxer.controller.php';
-include_once 'back/api/solicitud.controller.php';
+include_once 'back/controllers/material.controller.php';
+include_once 'back/controllers/boxer.controller.php';
+include_once 'back/controllers/request.controller.php';
 
 //phpinfo();
 if (!empty($_GET['action'])) {
@@ -29,11 +29,11 @@ switch ($params[0]) {
         $controller->showMaterialsSecretary();
         break;
     case 'solicitud-ciudadano':
-        $controller = new SolicitudController();
+        $controller = new RequestController();
         $controller->addData();
         break;
     case 'listado-pedidos':
-        $controller = new SolicitudController();
+        $controller = new RequestController();
         $controller->listRequests();
         break;
     case 'formulario-insertar-material':

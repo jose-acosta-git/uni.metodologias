@@ -3,9 +3,9 @@
 /* Incluyo la libreria para el ruteo */
 include_once 'lib/Router.php';
 /* Incluyo el controlador de profesiones y comemtarios*/
-include_once 'back/api/material.controller.php';
-include_once 'back/api/boxers.controller.php';
-include_once 'back/api/list_of_orders.php';
+include_once 'back/controllers/material.controller.php';
+include_once 'back/controllers/boxers.controller.php';
+include_once 'back/controllers/list_of_orders.php';
 
 /* creo el ruteo */
 $router = new Router();

@@ -1,6 +1,6 @@
 <?php
 
-class MaterialsModel{
+class MaterialModel{
 
     private $database;
 

@@ -1,16 +1,16 @@
 <?php
 
     //Se inclute modelo de materiales
-    require_once('back/models/solicitud.model.php');
+    require_once('back/models/request.model.php');
     require_once('api.view.php');
 
-    class List_of_Orders_Controller {
+    class OrderController {
 
         private $model;
         private $view;
 
         function __construct(){
-            $this->model = new SolicitudModel();
+            $this->model = new RequestModel();
             $this->view = new APIView();
             /**Obtengo lo que tengo por post, como texto */
             $this->data = file_get_contents('php://input');
@@ -31,8 +31,6 @@
             }   
         }
 
-
-
         public function getFilterOrders($params = null){
             $date1 = $params[':date1'];
             $date2 = $params[':date2'];
@@ -45,7 +43,5 @@
                 $this->view->response("No se encontraron pedidos de retiro", 500);
             }   
        }
-
-                /* Obtiene todos los materiales */
 
     }
