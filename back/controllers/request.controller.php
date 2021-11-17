@@ -1,33 +1,27 @@
 <?php
 
-//Se inclute modelo de materiales
-require_once('back/models/solicitud.model.php');
-require_once('back/models/volumen.model.php');
-require_once('back/models/franja_horaria.model.php');
-require_once('back/models/ciudadano.model.php');
-
-
-require_once('api.view.php');
+require_once('back/models/request.model.php');
+require_once('back/models/volume.model.php');
+require_once('back/models/timezone.model.php');
+require_once('back/models/citizen.model.php');
 require_once('front/view/request.view.php');
 
-class SolicitudController
+class RequestController
 {
 
-    private $solicitudModel;
-    private $ciudadanoModel;
-
-    private $view;
+    private $requestModel;
+    private $citizenModel;
+    private $materialView;
     private $requestView;
-
 
     function __construct()
     {
-        //$this->view = new AdminView();
-        $this->solicitudModel = new SolicitudModel();
-        $this->ciudadanoModel = new CiudadanoModel();
-        $this->view = new MaterialView();
+        $this->requestModel = new RequestModel();
+        $this->citizenModel = new CitizenModel();
+        $this->materialView = new MaterialView();
         $this->requestView = new RequestView();
     }
+
     /*Calcula distancia entre dos puntos cardinales*/    
     function getdistance($lat1, $lon1, $lat2, $lon2, $unit = 'K') {
         $theta = $lon1 - $lon2;
@@ -91,7 +85,7 @@ class SolicitudController
     {
         //control de datos obligatorios
         if (empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['address']) || empty($_POST['phone'])) {
-            //$this->view->showError('Faltan datos obligatorios')
+            //$this->materialView->showError('Faltan datos obligatorios')
             echo ('faltan datos obligatorios');
             die();
         }
@@ -130,18 +124,18 @@ class SolicitudController
         $phone = $_POST['phone'];
 
         if ($this->distanciamayor($address)){
-            $this->view->showHome('distancia','La direccion ingresada esta muy lejos del campus universitario');
+            $this->materialView->showHome('distancia','La direccion ingresada esta muy lejos del campus universitario');
             //echo ('La direccion se encuentra a mas de 6 km');
             die();
         }
 
-        $id_ciudadano = $this->ciudadanoModel->insert($name, $surname, $address, $phone);
+        $id_ciudadano = $this->citizenModel->insert($name, $surname, $address, $phone);
 
         if ($franjahoraria != null) {
             if ($realName != null) {
-                $this->solicitudModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], $realName);
+                $this->requestModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], $realName);
             } else {
-                $this->solicitudModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], null);
+                $this->requestModel->insert($id_ciudadano, date('y/m/d'), $_POST['time-zone'], $_POST['materials-volume'], null);
             }
         }
 

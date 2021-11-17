@@ -1,17 +1,20 @@
 <?php
 
     //Se inclute modelo de materiales
-    require_once('back/models/boxers.model.php');
+    require_once('back/models/boxer.model.php');
     require_once('api.view.php');
+    require_once('front/view/boxer.view.php');
 
-    class BoxersController {
+    class BoxerController {
 
         private $model;
+        private $apiView;
         private $view;
 
         function __construct(){
-            $this->model = new BoxersModel();
-            $this->view = new APIView();
+            $this->model = new BoxerModel();
+            $this->apiView = new APIView();
+            $this->view = new BoxerView();
             /**Obtengo lo que tengo por post, como texto */
             $this->data = file_get_contents('php://input');
         }
@@ -25,10 +28,15 @@
             $allBoxers = $this->model->getAllBoxers();
             $this->getData($allBoxers);
             if ($allBoxers){
-                $this->view->response($allBoxers, 200);
+                $this->apiView->response($allBoxers, 200);
             } else {
-                $this->view->response("No se encontraron Cartoneros", 500);
+                $this->apiView->response("No se encontraron Cartoneros", 500);
             }   
         }
         
+        /** Se muestra el listado de cartoneros */
+        function showBoxers(){
+            $boxers = $this->model->getAllBoxers();
+            $this->view->showBoxers($boxers);
+        }
     }

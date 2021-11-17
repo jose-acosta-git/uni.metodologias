@@ -1,6 +1,6 @@
 <?php
 
-class FranjaHorariaModel
+class TimezoneModel
 {
 
     private $database;
@@ -18,11 +18,7 @@ class FranjaHorariaModel
         return $database;
     }
 
-    function getAll()
-    {
-        //return $this->materials;
-    }
-
+    /** Inserto una franja horaria */
     function insert($from, $until)
     {
         $query = $this->database->prepare('INSERT INTO `franja_horaria`(`desde`, `hasta`) VALUES (?,?)');

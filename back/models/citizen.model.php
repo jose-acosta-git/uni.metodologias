@@ -1,6 +1,6 @@
 <?php
 
-class CiudadanoModel
+class CitizenModel
 {
 
     private $database;
@@ -18,11 +18,7 @@ class CiudadanoModel
         return $database;
     }
 
-    function getAll()
-    {
-        //return $this->materials;
-    }
-
+    /** Inserto un ciudadano en la base de datos */
     function insert($name, $lastname, $address, $phone)
     {
         $query = $this->database->prepare('INSERT INTO `ciudadano`(`nombre`, `apellido`, `direccion`, `telefono`) VALUES (?,?,?,?)');

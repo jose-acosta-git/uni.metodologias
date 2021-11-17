@@ -1,6 +1,6 @@
 <?php
 
-class VolumenModel
+class VolumeModel
 {
 
     private $database;
@@ -18,11 +18,7 @@ class VolumenModel
         return $database;
     }
 
-    function getAll()
-    {
-        //return $this->materials;
-    }
-
+    /** Inserta un volumen */
     function insert($volumen)
     {
         $query = $this->database->prepare('INSERT INTO `volumen`(`volumen`) VALUES (?)');
