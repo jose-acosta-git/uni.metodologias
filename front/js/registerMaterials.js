@@ -5,8 +5,19 @@ const listMaterialsRegister = new Vue({
     data: {
         list: [],
 
+
     },
     methods: {
+        selectMaterial: async function(e) {
+            let id = e.target.id;
+            /* let title = document.querySelector("#matName");*/
+            listAlgo.algoList.push({ material: id });
+            /*title.innerHTML = e.target.name;*/
+
+
+
+        }
+
 
     }
 });
@@ -58,7 +69,40 @@ function initPage() {
         console.log(listBoxers.boxersList);
     };
 
+    const listBoxers = new Vue({
+        el: "#listBoxers",
+        data: {
+            boxersList: [],
+        },
+        methods: {
+            selectBoxer: async function(e) {
+                let id = e.target.id;
+                let title = document.querySelector("#boxerName");
+                console.log(id);
+                title.innerHTML = e.target.name;
 
+
+
+            }
+        }
+
+
+    });
+    const listAlgo = new Vue({
+        el: "#listAlgo",
+        data: {
+            algoList: [],
+        },
+        methods: {
+
+
+
+
+
+        }
+
+
+    });
 
 
 }
