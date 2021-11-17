@@ -193,6 +193,13 @@ INSERT INTO `material_aceptado` (`nombre_material`, `condicion_entrega`, `imagen
 ('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './back/images/aluminiumContainers.jpeg'),
 ('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './back/images/glassBottle.jpeg');
 
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (27888888,'Cristian','Tisera','Colon 199','1980-8-8',2);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (21222222,'Juan','Molfese','Pringles 66','1960-8-8',3);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (33333333,'Guido','Pisarra','Chacabuco 856','1990-8-8',1);
+
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (1, "Auto",2);
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (2, "Camioneta",3);
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (3, "Camion",4);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
