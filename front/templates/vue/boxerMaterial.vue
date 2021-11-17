@@ -7,7 +7,7 @@
                 <section id="listMat" class="col-12">
                     <ul class="row list-group mt-5">
                         <li  v-for="boxi in lista_provisoria" class="list-group-item d-flex justify-content-between">
-                            <div class="font-italic">{{boxi.material}}</div>
+                            <div class="font-italic">{{boxi.nombre_material}}</div>
                             <div class="font-italic">{{boxi.peso}}</div>
                             
                            

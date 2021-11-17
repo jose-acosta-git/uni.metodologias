@@ -1,14 +1,12 @@
 {literal}
   <div class="container">
     <div class="" id="listMaterialsRegister" >
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Material
-        </button>
-        <div  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a v-for="material in list" v-bind:id="material.nombre_material" v-on:click="selectMaterial" class="dropdown-item">{{material.nombre_material}} </a>
-        </div>
-      </div>
+         
+      <select id="material-select" class="form-select btn btn-secondary" v-model="materialSelected" required>
+        <option disabled value="">Material</option>
+        <option v-for="material in list" v-bind:id="material.id_material" v-bind:value="material.id_material">{{material.nombre_material}}</option        
+      </select>
+
     </div> 
   </div>
 {/literal}

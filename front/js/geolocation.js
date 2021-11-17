@@ -23,23 +23,6 @@ async function getCoords(address) {
             let lat2 = basurero.results[0].geometry.location.lat();
             let lng2 = basurero.results[0].geometry.location.lng();
             return (getKilometros(lat1, lng1, lat2, lng2));
-            /*
-            geocoder.geocode({ 'address': `${address}, Tandil, Buenos Aires`}, function(results, status) {
-                if (status == 'OK') {
-                    lat1 = results[0].geometry.location.lat();
-                    lng1 = results[0].geometry.location.lng();
-                } 
-            });
-            
-            geocoder.geocode({ 'address': 'UNICEN Campus Universitario, Tandil, Buenos Aires'}, function(results, status) {
-                if (status == 'OK') {
-                    lat2 = results[0].geometry.location.lat();
-                    lng2 = results[0].geometry.location.lng();
-                } 
-                let km = getKilometros(lat1,lng1,lat2,lng2);
-                return km;
-            });
-            */ 
         }
     
 }
