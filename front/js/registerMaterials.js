@@ -4,10 +4,32 @@ const listMaterialsRegister = new Vue({
     el: "#listMaterialsRegister",
     data: {
         list: [],
-                   
+        
+       
     },
+    
+    methods: {
+        selectMaterial: async function(e) {
+            let id = e.target.id;
+            let peso = document.querySelector("#weight_input");
+            listMate.lista_provisoria.push({ material: id, peso: peso.value });
+            
+        }
+
+    }
+}); 
+
+const listMate = new Vue({
+    el: "#listMat",
+    data: {
+        
+        lista_provisoria:[],
+       
+    },
+    
     methods: {
         
+
     }
 }); 
 
@@ -19,11 +41,9 @@ const listBoxers = new Vue ({
     methods:{
         selectBoxer: async function(e) {
             let id = e.target.id;
-            let title=document.querySelector(".nombre_cartonero");
+            let title=document.querySelector("#boxerName");
             console.log(id);
-            title.innerHTML=e.target.name;
-            
-            
+            title.innerHTML=e.target.name;          
             
         }
     }
