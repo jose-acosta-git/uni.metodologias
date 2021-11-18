@@ -5,7 +5,7 @@ include_once 'lib/Router.php';
 /* Incluyo el controlador de profesiones y comemtarios*/
 include_once 'back/controllers/material.controller.php';
 include_once 'back/controllers/boxer.controller.php';
-include_once 'back/controllers/material-boxer.controller.php';
+include_once 'back/controllers/material.boxer.controller.php';
 include_once 'back/controllers/order.controller.php';
 
 /* creo el ruteo */
