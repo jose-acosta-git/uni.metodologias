@@ -1,7 +1,7 @@
 <?php
 
     //Se inclute modelo de materiales
-    require_once('back/models/material-boxer.model.php');
+    require_once('back/models/material.boxer.model.php');
     require_once('api.view.php');
 
     class MaterialBoxerController {
