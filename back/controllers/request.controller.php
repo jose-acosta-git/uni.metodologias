@@ -5,6 +5,7 @@ require_once('back/models/volume.model.php');
 require_once('back/models/timezone.model.php');
 require_once('back/models/citizen.model.php');
 require_once('front/view/request.view.php');
+require_once('api.view.php');
 
 class RequestController
 {
@@ -13,6 +14,7 @@ class RequestController
     private $citizenModel;
     private $materialView;
     private $requestView;
+    private $apiView;
 
     function __construct()
     {
@@ -20,6 +22,9 @@ class RequestController
         $this->citizenModel = new CitizenModel();
         $this->materialView = new MaterialView();
         $this->requestView = new RequestView();
+        $this->apiView = new APIView();
+        /**Obtengo lo que tengo por post, como texto */
+        $this->data = file_get_contents('php://input');
     }
 
     /*Calcula distancia entre dos puntos cardinales*/    
@@ -159,5 +164,32 @@ class RequestController
         $this->requestView->showRequests();
     }
 
+    private function getData($params = null){
+        return json_decode($this->data);
+    }
+
+    /* Obtiene todos los materiales */
+    public function getAllOrders($params = null){
+        $allOrders = $this->requestModel->getAllOrders();
+        $this->getData($allOrders);
+        if ($allOrders){
+            $this->apiView->response($allOrders, 200);
+        } else {
+            $this->apiView->response("No se encontraron pedidos de retiro", 500);
+        }   
+    }
+
+    public function getFilterOrders($params = null){
+        $date1 = $params[':date1'];
+        $date2 = $params[':date2'];
+        
+
+        $orders = $this->requestModel-> getFilterOrders($date1, $date2);
+        if ($orders){
+            $this->apiView->response($orders, 200);
+        } else {
+            $this->apiView->response("No se encontraron pedidos de retiro", 500);
+        }   
+   }
 
 }

@@ -6,7 +6,7 @@ include_once 'lib/Router.php';
 include_once 'back/controllers/material.controller.php';
 include_once 'back/controllers/boxer.controller.php';
 include_once 'back/controllers/material.boxer.controller.php';
-include_once 'back/controllers/order.controller.php';
+include_once 'back/controllers/request.controller.php';
 
 /* creo el ruteo */
 $router = new Router();
@@ -15,11 +15,11 @@ $router = new Router();
 
 /* Obtiene todos los materiales */
 $router->addRoute('solicitud-ciudadano', 'POST', 'SolicitudController', 'addData');
-$router->addRoute('orders', 'GET', 'OrderController', 'getAllOrders');
+$router->addRoute('orders', 'GET', 'RequestController', 'getAllOrders');
 $router->addRoute('material', 'GET', 'MaterialController', 'getAll');
 
 $router->addRoute('boxers', 'GET', 'BoxerController', 'getAll');
-$router->addRoute('orders/:date1/:date2', 'GET', 'OrderController', 'getFilterOrders');
+$router->addRoute('orders/:date1/:date2', 'GET', 'RequestController', 'getFilterOrders');
 $router->addRoute('material/:dni', 'GET', 'MaterialBoxerController', 'getByBoxer');
 $router->addRoute('material', 'POST', 'MaterialBoxerController', 'add');
 
