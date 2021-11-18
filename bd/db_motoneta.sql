@@ -128,6 +128,7 @@ ALTER TABLE `material_cartonero`
     ADD CONSTRAINT `fk_material_cartonero_material` FOREIGN KEY(`id_material`) REFERENCES `material_aceptado`(`id_material`),
     ADD CONSTRAINT `fk_material_cartonero_cartonero` FOREIGN KEY(`dni_cartonero`) REFERENCES `cartonero`(`cartonero_dni`);
 
+
 --
 -- Indices de la tabla `franja_horaria`
 --

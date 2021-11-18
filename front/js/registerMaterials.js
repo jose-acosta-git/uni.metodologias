@@ -7,44 +7,44 @@ const listMaterialsRegister = new Vue({
         materialSelected: "",
         list: [],
     },
-  
+
 });
 
 const listMate = new Vue({
     el: "#listMat",
     data: {
-        lista_provisoria:[], 
+        lista_provisoria: [],
     }
-}); 
+});
 
-const listBoxers = new Vue ({
+const listBoxers = new Vue({
     el: "#listBoxers",
     data: {
-        boxerSelected:"",
-        boxersList:[],
+        boxerSelected: "",
+        boxersList: [],
     },
-    methods:{
+    methods: {
         selectBoxer: async function(e) {
             let id = e.target.id;
-            let title=document.querySelector("#boxerName");
-            title.innerHTML=e.target.name;
-            this.boxerSelected=id;         
+            let title = document.querySelector("#boxerName");
+            title.innerHTML = e.target.name;
+            this.boxerSelected = id;
             this.loadBoxers(id);
         },
-        loadBoxers: async function (id){
-            let r = await fetch(`api/material/${id}` ,{
+        loadBoxers: async function(id) {
+            let r = await fetch(`api/material/${id}`, {
                 "method": "GET"
             });
-            if (r.ok){
+            if (r.ok) {
                 let materials = await r.json();
-                listMate.lista_provisoria= materials; 
-            } else{
-                listMate.lista_provisoria=[];
+                listMate.lista_provisoria = materials;
+            } else {
+                listMate.lista_provisoria = [];
             }
         }
     }
 
-    
+
 });
 
 document.addEventListener("DOMContentLoaded", initPage());
@@ -55,21 +55,21 @@ function initPage() {
     showBoxers();
     /** Obtiene todos los materiales y los imprime */
     async function showMaterials() {
-        let r = await fetch(`api/material` ,{
+        let r = await fetch(`api/material`, {
             "method": "GET"
         });
         let materials = await r.json();
         listMaterialsRegister.list = materials;
     };
-    
+
     /** Obtiene todos los materiales y los imprime */
     async function showBoxers() {
-        let r = await fetch(`api/boxers` ,{
+        let r = await fetch(`api/boxers`, {
             "method": "GET"
         });
         let boxers = await r.json();
-        listBoxers.boxersList= boxers; 
-    };   
+        listBoxers.boxersList = boxers;
+    };
 
     document.querySelector("#btn-material-boxer").addEventListener("click", function(e) {
         e.preventDefault();
@@ -79,7 +79,7 @@ function initPage() {
     });
 
     async function addMaterialBoxer(boxerId, materialId, weight) {
-        let data ={
+        let data = {
             "boxerId": boxerId,
             "materialId": materialId,
             "weight": weight
@@ -94,6 +94,6 @@ function initPage() {
             listMate.lista_provisoria.push(material);
         }
     }
-   
-        
+
+
 }
