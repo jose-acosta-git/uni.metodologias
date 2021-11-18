@@ -1,7 +1,7 @@
 {literal}
     <section class="container">
         <div class="mx-5 my-3">
-            <fieldset class="custom-fieldset fourth-color">
+            <fieldset class="custom-fieldset fourth-color ">
                 <legend class="custom-fieldset">Materiales ingresados por  <span id="boxerName"></span></legend>
 
                 <section id="listMat" class="col-12">

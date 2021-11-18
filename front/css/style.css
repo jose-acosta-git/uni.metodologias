@@ -353,7 +353,16 @@ tbody {
     background-color: #b8e1dd;
 }
 
-#btn_add_box {
+#btn-material-boxer {
     background-color: #3a9188;
     color: white;
+}
+
+#material-select {
+    background-color: #3a9188;
+    color: white;
+}
+
+#opMat {
+    background-color: #b8e1dd;
 }

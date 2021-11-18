@@ -9,7 +9,7 @@
       </div>
       <div class="form-group">
         <div class="input-group">
-          <span class="input-group-text mr-1" id="weight_label">Peso</span>
+          <span class="input-group-text mx-1" id="weight_label">Peso</span>
           <input type="number" aria-label="Weight" class="form-control" id="weight_input">
         </div>
 
@@ -17,11 +17,11 @@
     </div>             
       
         <div class="input-group justify-content-center">
-          <button id="btn-material-boxer" class="btn" type="submit" id="btn_add_box">Agregar</button>
+          <button id="btn-material-boxer" class="btn" type="submit">Agregar</button>
         </div> 
         
-      <div class="form-group justify-content-center">  
-      {include file='../vue/boxerMaterial.vue'}
+      <div class="form-group col-12">  
+        {include file='../vue/boxerMaterial.vue'}
       </div>
 
 </select>
