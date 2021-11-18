@@ -5,6 +5,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 include_once 'back/controllers/material.controller.php';
 include_once 'back/controllers/boxer.controller.php';
 include_once 'back/controllers/request.controller.php';
+include_once 'back/controllers/material-boxer.controller.php';
 
 //phpinfo();
 if (!empty($_GET['action'])) {
