@@ -1,9 +1,8 @@
 <?php
 
 require_once('back/models/request.model.php');
-require_once('back/models/volume.model.php');
-require_once('back/models/timezone.model.php');
 require_once('back/models/citizen.model.php');
+require_once('front/view/material.view.php');
 require_once('front/view/request.view.php');
 require_once('api.view.php');
 
