@@ -63,10 +63,10 @@ CREATE TABLE `franja_horaria`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedido_retiro`
+-- Estructura de tabla para la tabla `pedido_cartonero`
 --
 
-CREATE TABLE `pedido_retiro`
+CREATE TABLE `pedido_cartonero`
 (
   `id_ciudadano` int(11) NOT NULL,
   `fecha_pedido` date NOT NULL,
@@ -124,12 +124,12 @@ ALTER TABLE `franja_horaria`
 ADD PRIMARY KEY(`id_franja_horaria`);
 
 --
--- Indices de la tabla `pedido_retiro`
+-- Indices de la tabla `pedido_cartonero`
 --
-ALTER TABLE `pedido_retiro`
+ALTER TABLE `pedido_cartonero`
 ADD PRIMARY KEY(`id_ciudadano`,`fecha_pedido`),
-ADD KEY `fk_pedido_retiro_franja_horaria`(`id_franja_horaria`),
-ADD KEY `fk_pedido_retiro_volumen`(`volumen_id_volumen`);
+ADD KEY `fk_pedido_cartonero_franja_horaria`(`id_franja_horaria`),
+ADD KEY `fk_pedido_cartonero_volumen`(`volumen_id_volumen`);
 
 --
 -- Indices de la tabla `volumen`
@@ -142,12 +142,12 @@ ALTER TABLE `volumen`
 --
 
 --
--- Filtros para la tabla `pedido_retiro`
+-- Filtros para la tabla `pedido_cartonero`
 --
-ALTER TABLE `pedido_retiro`
-    ADD CONSTRAINT `fk_pedido_retiro_ciudadano` FOREIGN KEY(`id_ciudadano`) REFERENCES `ciudadano`(`id_ciudadano`),
-    ADD CONSTRAINT `fk_pedido_retiro_franja_horaria` FOREIGN KEY(`id_franja_horaria`) REFERENCES `franja_horaria`(`id_franja_horaria`),
-    ADD CONSTRAINT `fk_pedido_retiro_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`);
+ALTER TABLE `pedido_cartonero`
+    ADD CONSTRAINT `fk_pedido_cartonero_ciudadano` FOREIGN KEY(`id_ciudadano`) REFERENCES `ciudadano`(`id_ciudadano`),
+    ADD CONSTRAINT `fk_pedido_cartonero_franja_horaria` FOREIGN KEY(`id_franja_horaria`) REFERENCES `franja_horaria`(`id_franja_horaria`),
+    ADD CONSTRAINT `fk_pedido_cartonero_volumen` FOREIGN KEY(`volumen_id_volumen`) REFERENCES `volumen`(`id_volumen`);
 
 
 -- foreign keys
@@ -182,6 +182,13 @@ INSERT INTO `material_aceptado` (`nombre_material`, `condicion_entrega`, `imagen
 ('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './back/images/aluminiumContainers.jpeg'),
 ('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './back/images/glassBottle.jpeg');
 
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (27888888,'Cristian','Tisera','Colon 199','1980-8-8',2);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (21222222,'Juan','Molfese','Pringles 66','1960-8-8',3);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (33333333,'Guido','Pisarra','Chacabuco 856','1990-8-8',1);
+
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (1, "Auto",2);
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (2, "Camioneta",3);
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (3, "Camion",4);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

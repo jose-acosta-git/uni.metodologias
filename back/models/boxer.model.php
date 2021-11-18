@@ -1,6 +1,6 @@
 <?php
 
-class BoxersModel{
+class BoxerModel{
 
     private $cartoneros = array(
         array(
@@ -61,14 +61,10 @@ class BoxersModel{
         )
     );
    
-    
     /* Obtiene todos los Cartoneros hardcodeados */
     function getAllBoxers()
     {
-        
         return $this->cartoneros;
-        
     }
 
-    
 }

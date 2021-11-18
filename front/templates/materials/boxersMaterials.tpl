@@ -17,11 +17,13 @@
     </div>             
       
         <div class="input-group justify-content-center">
-          <button class="btn" type="submit" id="btn_add_box">Agregar</button>
+          <button id="btn-material-boxer" class="btn" type="submit" id="btn_add_box">Agregar</button>
         </div> 
         
       <div class="form-group justify-content-center">  
       {include file='../vue/boxerMaterial.vue'}
       </div>
+
+</select>
                   
   </section>

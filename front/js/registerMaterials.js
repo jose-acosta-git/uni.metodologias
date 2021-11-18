@@ -1,50 +1,46 @@
 "use strict";
 
+
 const listMaterialsRegister = new Vue({
     el: "#listMaterialsRegister",
     data: {
+        materialSelected: "",
         list: [],
-
-
     },
 
-    methods: {
-        selectMaterial: async function(e) {
-            let id = e.target.id;
-            let peso = document.querySelector("#weight_input");
-            listMate.lista_provisoria.push({ material: id, peso: peso.value });
-
-        }
-
-    }
 });
 
 const listMate = new Vue({
     el: "#listMat",
     data: {
-
         lista_provisoria: [],
-
-    },
-
-    methods: {
-
-
     }
 });
 
 const listBoxers = new Vue({
     el: "#listBoxers",
     data: {
+        boxerSelected: "",
         boxersList: [],
     },
     methods: {
         selectBoxer: async function(e) {
             let id = e.target.id;
             let title = document.querySelector("#boxerName");
-            console.log(id);
             title.innerHTML = e.target.name;
-
+            this.boxerSelected = id;
+            this.loadBoxers(id);
+        },
+        loadBoxers: async function(id) {
+            let r = await fetch(`api/material/${id}`, {
+                "method": "GET"
+            });
+            if (r.ok) {
+                let materials = await r.json();
+                listMate.lista_provisoria = materials;
+            } else {
+                listMate.lista_provisoria = [];
+            }
         }
     }
 
@@ -57,15 +53,13 @@ function initPage() {
     /**  Muestra todos los materiales */
     showMaterials();
     showBoxers();
-    console.log(listBoxers.boxersList)
-        /** Obtiene todos los materiales y los imprime */
+    /** Obtiene todos los materiales y los imprime */
     async function showMaterials() {
         let r = await fetch(`api/material`, {
             "method": "GET"
         });
         let materials = await r.json();
         listMaterialsRegister.list = materials;
-        console.log(listMaterialsRegister.list);
     };
 
     /** Obtiene todos los materiales y los imprime */
@@ -75,43 +69,31 @@ function initPage() {
         });
         let boxers = await r.json();
         listBoxers.boxersList = boxers;
-        console.log(listBoxers.boxersList);
     };
 
-    const listBoxers = new Vue({
-        el: "#listBoxers",
-        data: {
-            boxersList: [],
-        },
-        methods: {
-            selectBoxer: async function(e) {
-                let id = e.target.id;
-                let title = document.querySelector("#boxerName");
-                console.log(id);
-                title.innerHTML = e.target.name;
-
-
-
-            }
-        }
-
-
+    document.querySelector("#btn-material-boxer").addEventListener("click", function(e) {
+        e.preventDefault();
+        let weight = document.querySelector("#weight_input").value;
+        console.log(listBoxers.boxerSelected + "," + listMaterialsRegister.materialSelected + "," + weight);
+        addMaterialBoxer(listBoxers.boxerSelected, listMaterialsRegister.materialSelected, weight);
     });
-    const listAlgo = new Vue({
-        el: "#listAlgo",
-        data: {
-            algoList: [],
-        },
-        methods: {
 
-
-
-
-
+    async function addMaterialBoxer(boxerId, materialId, weight) {
+        let data = {
+            "boxerId": boxerId,
+            "materialId": materialId,
+            "weight": weight
         }
-
-
-    });
+        let r = await fetch(`api/material`, {
+            "method": "POST",
+            "headers": { "Content-Type": "application/json" },
+            "body": JSON.stringify(data)
+        });
+        if (r.ok) {
+            let material = await r.json();
+            listMate.lista_provisoria.push(material);
+        }
+    }
 
 
 }
