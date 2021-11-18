@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-  <section class="container">
-=======
 <section class="container">
->>>>>>> 748ec987e2e22dce8e8048daf59f1d28e124260e
     <h3 class="nombre_cartonero"></h3>
     <div class="row m-0 p-5 justify-content-between">
       <div class="form-group">
@@ -25,11 +21,7 @@
         </div> 
         
       <div class="form-group justify-content-center">  
-<<<<<<< HEAD
-      {include file='../vue/boxerMaterials.vue'}
-=======
       {include file='../vue/boxerMaterial.vue'}
->>>>>>> 748ec987e2e22dce8e8048daf59f1d28e124260e
       </div>
                   
   </section>
