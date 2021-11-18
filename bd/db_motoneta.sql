@@ -186,13 +186,13 @@ INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(3,'Caja de camioneta');
 INSERT INTO `volumen`(`id_volumen`,`volumen`) VALUES(4,'Camion');
 
 INSERT INTO `material_aceptado` (`nombre_material`, `condicion_entrega`, `imagen_material`) VALUES
-('Papel', 'El papel a reciclar debe estar siempre limpio y seco. Además no se acepta papel encerado o parafinado, etiquetas adhesivas, papel higiénico-sanitario, papel alimentación, papel manchado de grasa, papel térmico de fax, papel fotográfico, papeles engomados, papeles de regalo o papeles pegados.', './back/images/materials/paper.jpeg'),
-('Carton', 'El cartón debe estar limpio y si es una caja también debe estar desarmada.', './back/images/materials/cardboard.jpeg'),
-('Envases plasticos', 'Se acepta cualquier envase que tenga un Código de Identificación Plástico o RIC (Resin Identification Code), a excepción de  los de yogur o queso blanco, los plásticos mezclados con otros materiales o los degradados por el sol.', './back/images/materials/plasticBottles.jpeg'),
-('Latas de conserva', 'No deben estar oxidadas.', './back/images/materials/cans.jpeg'),
-('Tetrabrik', 'Solo se aceptarán limpios, secos y aplastados.', './back/images/materials/boxTetrabrik.jpeg'),
-('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './back/images/materials/aluminiumContainers.jpeg'),
-('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './back/images/materials/glassBottle.jpeg');
+('Papel', 'El papel a reciclar debe estar siempre limpio y seco. Además no se acepta papel encerado o parafinado, etiquetas adhesivas, papel higiénico-sanitario, papel alimentación, papel manchado de grasa, papel térmico de fax, papel fotográfico, papeles engomados, papeles de regalo o papeles pegados.', './back/images/paper.jpeg'),
+('Carton', 'El cartón debe estar limpio y si es una caja también debe estar desarmada.', './back/images/box.jpeg'),
+('Envases plasticos', 'Se acepta cualquier envase que tenga un Código de Identificación Plástico o RIC (Resin Identification Code), a excepción de  los de yogur o queso blanco, los plásticos mezclados con otros materiales o los degradados por el sol.', './back/images/plastic.jpeg'),
+('Latas de conserva', 'No deben estar oxidadas.', './back/images/cans.jpeg'),
+('Tetrabrik', 'Solo se aceptarán limpios, secos y aplastados.', './back/images/tetrabrik.jpeg'),
+('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './back/images/aluminium.jpeg'),
+('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './back/images/glassBottle.jpeg');
 
 INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (1, "Auto",2);
 INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (2, "Camioneta",3);
