@@ -38,7 +38,13 @@
             $boxer = $body->boxerId;
             $material = $body->materialId;
             $weight = $body->weight;
-            $material = $this->model->insert($boxer, $material, $weight);
+            $existMaterial = $this->model->getMaterialBoxer($boxer, $material);
+            if ($existMaterial){
+                $weight += $existMaterial->peso;
+                $material = $this->model->update($boxer, $material, $weight);
+            } else {
+                $material = $this->model->insert($boxer, $material, $weight);
+            }
             if ($material){
                 $this->view->response($material, 200);
             } else {
