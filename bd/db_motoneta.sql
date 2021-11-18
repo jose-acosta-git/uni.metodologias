@@ -194,13 +194,18 @@ INSERT INTO `material_aceptado` (`nombre_material`, `condicion_entrega`, `imagen
 ('Envases de aluminio', 'Deben estar secos, y si son latas también aplastadas. No se aceptarán envases de aluminio oxidados.', './back/images/aluminiumContainers.jpeg'),
 ('Botellas de vidrio', 'Se aceptarán solo si estan limpias y secas.', './back/images/glassBottle.jpeg');
 
-INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (27888888,'Cristian','Tisera','Colon 199','1980-8-8',2);
-INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (21222222,'Juan','Molfese','Pringles 66','1960-8-8',3);
-INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (33333333,'Guido','Pisarra','Chacabuco 856','1990-8-8',1);
-
 INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (1, "Auto",2);
 INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (2, "Camioneta",3);
 INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (3, "Camion",4);
+INSERT INTO `vehiculo`(`id_vehiculo`, `tipo`, `id_volumen`) VALUES (999, "Vehiculo buena onda",4);
+
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (31896843,'Cristian','Tisera','Figueroa 1221','1985-4-5',1);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (32698639,'Juan','Molfese','Ugalde 1301','1986-6-25',2);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (33125896,'Guido','Pisarra','Arana 644','1987-9-2',1);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (34923124,'Franco','Bayugar','Garibaldi 98','1988-2-6',1);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (35998634,'German','De Francesco','Constitucion 565','1990-4-10',2);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (36532698,'Jose','Acosta','Saavedra 76','1991-10-18',3);
+INSERT INTO `cartonero`(`cartonero_dni`, `nombre`, `apellido`, `direccion`, `fecha_nacimiento`, `id_vehiculo`) VALUES (11111111,'Ciudadano','Buena Onda','Pinto 399','1974-10-9',999);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

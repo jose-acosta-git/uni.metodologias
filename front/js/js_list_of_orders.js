@@ -43,8 +43,6 @@ function initpage() {
 
         let fechaDesde = formData.get('fecha-desde');
         let fechaHasta = formData.get('fecha-hasta');
-        console.log(fechaDesde)
-        console.log(fechaHasta)
         this.showList_of_Orders_Filter(fechaDesde, fechaHasta);
             },
                 showList_of_Orders_Filter: async function(fechaDesde, fechaHasta) {
@@ -54,7 +52,6 @@ function initpage() {
                     });
                     const orders = await r.json();
                     if (r.ok) {
-                        console.log(orders)
                         listOrders.list = orders;
                     }
                 } catch (e) {

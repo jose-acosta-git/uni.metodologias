@@ -74,7 +74,6 @@ function initPage() {
     document.querySelector("#btn-material-boxer").addEventListener("click", function(e) {
         e.preventDefault();
         let weight = document.querySelector("#weight_input").value;
-        console.log(listBoxers.boxerSelected + "," + listMaterialsRegister.materialSelected + "," + weight);
         addMaterialBoxer(listBoxers.boxerSelected, listMaterialsRegister.materialSelected, weight);
     });
 
@@ -91,7 +90,7 @@ function initPage() {
         });
         if (r.ok) {
             let material = await r.json();
-            listMate.lista_provisoria.push(material);
+            listBoxers.loadBoxers(material.dni_cartonero);
         }
     }
 
